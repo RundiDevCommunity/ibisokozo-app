@@ -1,7 +1,13 @@
-<p>layout works!</p>
 
-<app-header></app-header>
+<div class=" w-100">
+    <div>
+       <app-header></app-header>
+    </div>
+    <router-outlet></router-outlet>
+    <div class="position-fixed w-100" style="bottom: 0;">
+       <app-footer></app-footer>
+    </div>
 
-<router-outlet></router-outlet>
 
-<app-footer></app-footer>
+
+</div>

@@ -6,9 +6,9 @@ $font-sizes: (
   'xsm': 12px,
   'sm': 14px,
   'md': 16px,
-  'lg': 18px,
-  'xl': 20px,
-  'xxl': 24px,
+  'lg': 24px,
+  'xl': 36px,
+  'xxl': 48px,
 );
 
 @each $breakpoint, $font-size in $font-sizes {
@@ -31,8 +31,8 @@ $font-weights: (
 
 
 $colors: (
-  'primary': #359fe6,
-  'secondary': #9a9494,
+  'main': #359fe6,
+  'grey': #9a9494,
   'black': #000,
   'white': #fff,
   'success': rgb(132, 215, 50),
@@ -48,3 +48,7 @@ $colors: (
     color: $color-value;
   }
 }
+
+
+
+
