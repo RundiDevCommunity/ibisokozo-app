@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+
+
+$font-sizes: (
+  'xsm': 12px,
+  'sm': 14px,
+  'md': 16px,
+  'lg': 18px,
+  'xl': 20px,
+  'xxl': 24px,
+);
+
+@each $breakpoint, $font-size in $font-sizes {
+  .#{$breakpoint}-fs {
+    font-size: $font-size;
+  }
+}
+
+$font-weights: (
+  'light': 300,
+  'normal': 400,
+  'bold': 700,
+);
+
+@each $weight, $value in $font-weights {
+  .font-#{$weight} {
+    font-weight: $value;
+  }
+}
+
+
+$colors: (
+  'primary': #359fe6,
+  'secondary': #9a9494,
+  'black': #000,
+  'white': #fff,
+  'success': rgb(132, 215, 50),
+  'danger': rgb(200, 52, 52),
+);
+
+@each $color-name, $color-value in $colors {
+  .bg-#{$color-name} {
+    background-color: $color-value;
+  }
+
+  .text-#{$color-name} {
+    color: $color-value;
+  }
+}
