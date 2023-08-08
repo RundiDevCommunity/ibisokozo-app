@@ -1,0 +1,31 @@
+<div *ngIf="notification.type === 'success' || notification.type === 'failed'"
+style="z-index: 99;">
+    <div
+        [ngClass]="{
+            'notification-success': notification.type === 'success',
+            'notification-failed': notification.type === 'failed'
+        }"
+        class="p-2 ps-4 pe-4"
+        *ngIf="showNotification"
+        style="max-width: 300px"
+    >
+        <div class="d-flex">
+            <div style="margin-top: auto; margin-bottom: auto">
+                <span *ngIf="notification.type === 'success'"
+                    ><i
+                        class="fa-solid fa-circle-check me-2 text-success fs-5"
+                    ></i
+                ></span>
+                <span *ngIf="notification.type === 'failed'"
+                    ><i
+                        class="fa-solid fa-exclamation-triangle me-2 text-danger fs-5"
+                    ></i
+                ></span>
+            </div>
+            <div>
+                <b style="font-size: 14px">{{ notification.message }}</b>
+            </div>
+        </div>
+    </div>
+</div>
+
