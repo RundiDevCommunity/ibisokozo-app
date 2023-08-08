@@ -1,0 +1,21 @@
+.input-group {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.input-group input {
+    padding-right: 30px; 
+}
+
+.login:hover{
+    background-color: #2885dc;
+
+}

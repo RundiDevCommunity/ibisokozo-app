@@ -18,6 +18,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     RouterModule,
     SharedModule
+  ],
+  exports:[
+    FooterComponent
   ]
 })
 export class LayoutModule { }

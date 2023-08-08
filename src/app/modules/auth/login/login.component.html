@@ -4,16 +4,51 @@
     </div>
 
     <div class="w-100 d-flex justify-content-center mt-5">
-        <div>
-            <div class="d-grid">
+        <div class="">
+            <div class="d-grid mb-2">
                 <label for="email" class="mb-1">Email Adress</label>
                 <input type="email" class="form-control border input rounded" id="email" placeholder="Email">
             </div>
             <div class="d-grid">
-                <label for="email" class="mb-1">Password</label>
-                <input type="email" class="form-control border input rounded" id="email" placeholder="Email">
+                <label for="password" class="mb-1">Password</label>
+                <div class="input-group">
+                    <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control border input rounded" id="password" placeholder="Password">
+                    <span class="password-toggle" (click)="togglePasswordVisibility()">
+                        <i class="fa" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
+                    </span>
+                </div>
             </div>
+            <div class="float-end mb-2">
+                <b
+                 class="text-main" 
+                 style="text-decoration: underline;"
+                 role="button">Forgot password</b>
+            </div><br><br><br>
+
+            <div class="w-100 d-flex justify-content-center mt-4">
+                <button class="btn bg-main text-white px-5 login">
+                    <b>Login</b>
+                </button>
+
+            </div>
+            <div class="mt-3">
+                <div>
+                    <span>Don't have an account ? </span>
+                    <b
+                     class="text-main"
+                     role="button">Signup</b>
+                </div>
+            </div>
+            
+            
+            
         </div>
 
     </div>
+</div>
+<div class="position-fixed w-100"
+style="bottom: 0;">
+<app-footer></app-footer>
+
+
 </div>

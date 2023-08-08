@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
+  constructor(public location: Location){
+
+  }
+
+
+  back(){
+    this.location.back();
+  }
 }

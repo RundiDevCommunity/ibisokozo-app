@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
 
+  passwordVisible = false;
+
+  togglePasswordVisibility() {
+      this.passwordVisible = !this.passwordVisible;
+  }
+
 }
