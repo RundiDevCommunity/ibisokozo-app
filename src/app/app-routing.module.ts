@@ -38,6 +38,13 @@ children:[
           './modules/igisokozo/igisokozo.module'
       ).then((m) => m.IgisokozoModule),
 },
+{
+  path: 'most-scores',
+  loadChildren: () =>
+      import(
+          './modules/most-scores/most-scores.module'
+      ).then((m) => m.MostScoresModule),
+},
 ]}
 ];
 

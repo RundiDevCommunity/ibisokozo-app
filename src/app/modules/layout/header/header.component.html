@@ -6,7 +6,10 @@
 
     <div>
         <div class="pe-2">
-        <div class="text-white">
+        <div 
+        role="button"
+        class="text-white"
+        (click)="toggleMenu()">
             <span class="xl-fs">
                <i class="fa fa-user-circle"></i>
             </span>
@@ -23,16 +26,40 @@
         </div> -->
 
     </div>
-    <div class="bg-grey position-fixed mt-2 rounded" style="right: 1%; z-index:25">
-        <div class="mx-4">
-            <div>
-                <b>My profile</b>
+    <!--i wanna make a flech on of this card to show that it came from userprofile icon-->
+    <div
+     class="bg-grey position-fixed mt-2 rounded" 
+     style="right: 1%; z-index:25"
+     *ngIf="isMenuShown">
+     <div class="float-end text-grey" style="margin-top: -8.5%; margin-left:100px">
+        <i class="fa fa-caret-up pe-3"></i>
+     </div><br>
+        <div class="mx-4 mt-1">
+            <div 
+            class="d-flex align-items-center my-2" 
+            role="button"
+            (click)="changeMenu('profile')"
+            >
+                <i class="fa fa-user-circle me-1"></i>
+                <span>My profile</span>
             </div>
-            <hr>
-            <div>
-                <b>Most scores</b>
+            <hr class="my-1">
+            <div style="line-height: 1;" 
+             class="d-flex align-items-center my-2"
+             role="button"
+            (click)="changeMenu('most-scores')"
+            >
+                <i class="fa fa-star me-1"></i>
+                <span>Most scores</span>
             </div>
-            <hr>
+            <hr class="my-1">
+        </div>
+        <div class="mx-4 mt-3 mb-1">
+            <div  class="d-flex align-items-center"
+            role="button">
+                <i class="fa fa-sign-out-alt me-1"></i>
+                <b>Logout</b>
+            </div>
         </div>
 
     </div>

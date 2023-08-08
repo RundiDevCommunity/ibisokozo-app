@@ -1,5 +1,5 @@
 <div *ngIf="notification.type === 'success' || notification.type === 'failed'"
-style="z-index: 99;">
+ class="m-5">
     <div
         [ngClass]="{
             'notification-success': notification.type === 'success',
@@ -7,7 +7,6 @@ style="z-index: 99;">
         }"
         class="p-2 ps-4 pe-4"
         *ngIf="showNotification"
-        style="max-width: 300px"
     >
         <div class="d-flex">
             <div style="margin-top: auto; margin-bottom: auto">
