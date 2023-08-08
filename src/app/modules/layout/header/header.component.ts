@@ -10,6 +10,7 @@ export class HeaderComponent {
 
   isMenuShown: boolean = false
   selectedMenu:string='';
+  favDialog:any;
 
   constructor(private router:Router){}
 
@@ -24,5 +25,26 @@ export class HeaderComponent {
     this.isMenuShown=false
     
   }
+
+  logout(){
+    this.router.navigateByUrl('/login')
+    
+  }
+//how can i close this modal?
+  openModal() {
+    // this.modal.show();
+    this.favDialog = document.getElementById('favDialog');
+    if (this.favDialog) {
+        this.favDialog.showModal();
+    }
+}
+
+closeModal(){
+  this.favDialog = document.getElementById('favDialog');
+  if (this.favDialog) {
+      this.favDialog.close();
+  }
+
+}
 
 }

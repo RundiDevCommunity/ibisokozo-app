@@ -7,12 +7,5 @@ import { Location } from '@angular/common';
 })
 export class ProfileComponent {
 
-  constructor(public location: Location){
 
-  }
-
-
-  back(){
-    this.location.back();
-  }
 }

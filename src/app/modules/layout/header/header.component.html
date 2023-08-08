@@ -26,7 +26,6 @@
         </div> -->
 
     </div>
-    <!--i wanna make a flech on of this card to show that it came from userprofile icon-->
     <div
      class="bg-grey position-fixed mt-2 rounded" 
      style="right: 1%; z-index:25"
@@ -55,8 +54,11 @@
             <hr class="my-1">
         </div>
         <div class="mx-4 mt-3 mb-1">
-            <div  class="d-flex align-items-center"
-            role="button">
+            <div 
+            (click)="openModal()"
+             class="d-flex align-items-center"
+            role="button"
+            >
                 <i class="fa fa-sign-out-alt me-1"></i>
                 <b>Logout</b>
             </div>
@@ -66,3 +68,38 @@
     </div>
     
 </div>
+
+<dialog id="favDialog" class="rounded mx-2" style="border: none; max-width: 500px">
+    <div>
+        <p class="text-center" style="color: #f27474; font-size: 60px">
+            <i class="fa-regular fa-circle-question"></i>
+        </p>
+        <p
+            style="font-weight: 900; font-size: 20px"
+            class="text-center"
+        >
+            Would you like to disconnect in Ibisokozo App
+        </p>
+        <div class="text-center mt-3">
+            <button
+                type="button"
+                class="btn btn-primary btn-sm me-3"
+                (click)="logout()"
+            >
+                Yes
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-dark btn-sm"
+                (click)="closeModal()"
+            >
+                No
+            </button>
+        </div>
+    </div>
+
+
+
+
+</dialog>
