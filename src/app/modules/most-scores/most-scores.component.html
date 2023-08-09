@@ -1,45 +1,37 @@
+<div class="ps-2 pt-1">
+    <app-go-back></app-go-back>
+</div>
 
-             
-          <div class="ps-2 pt-1">
-            <app-go-back></app-go-back>
-           
-        </div>
-          <div class="most-scores">
-          
-            <h2>Most Scores</h2>
-            <ul class="list-unstyled user-list">
-                <li>
-                    <div class="user-card d-flex align-items-center p-2 border rounded">
-                        <div class="user-rank me-3">1</div>
-                        <img src="../../../assets/images/userprofile.png" alt="User Photo" class="user-photo rounded-circle">
-                        <div class="user-info">
-                            <div class="user-name fw-bold">dushime</div>
-                            <div class="user-points text-muted">342 points</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card d-flex align-items-center p-2 border rounded">
-                        <div class="user-rank me-3">2</div>
-                        <img src="../../../assets/images/userprofile.png" alt="User Photo" class="user-photo rounded-circle">
-                        <div class="user-info">
-                            <div class="user-name fw-bold">yannick</div>
-                            <div class="user-points text-muted">321 points</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card d-flex align-items-center p-2 border rounded">
-                        <div class="user-rank me-3">3</div>
-                        <img src="../../../assets/images/userprofile.png" alt="User Photo" class="user-photo rounded-circle">
-                        <div class="user-info">
-                            <div class="user-name fw-bold">john</div>
-                            <div class="user-points text-muted">123 points</div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        
-        
-    
+<div class="most-scores">
+    <h2>Most Scores</h2>
+    <ul class="list-unstyled user-list">
+        <li *ngFor="let player of mostPlayers; let i = index">
+            <div class="user-card d-flex align-items-center p-2 border rounded">
+                <div class="user-rank me-3">{{i + 1}}</div>
+                <!-- Attach click event to open the photo -->
+                <div role="button">
+                <img [src]="player.photoUrl" alt="User Photo" class="user-photo rounded-circle" (click)="openPhoto(player.photoUrl)">
+
+
+                </div>
+                <div class="user-info">
+                    <div class="user-name fw-bold">{{player.name}}</div>
+                    <div class="user-points text-muted">{{player.score}} points</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- Enlarged photo modal -->
+<div class="photo-modal" [ngClass]="{ 'show-modal': isPhotoOpen }">
+    <b
+     class="float-end mb-2 ms-2" 
+     (click)="closePhoto()"
+     role="button">
+        <i class="fs-1 fa fa-times"></i>
+    </b>
+    <img [src]="enlargedPhotoUrl" alt="Enlarged User Photo" class="enlarged-photo">
+   
+</div>
+<div class="overlay" [ngClass]="{ 'show-overlay': isPhotoOpen }"></div>

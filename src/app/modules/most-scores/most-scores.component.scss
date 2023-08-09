@@ -48,3 +48,55 @@ tr, td, th{
 .user-points {
     color: #888;
 }
+
+/* Style for the overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.show-overlay {
+    display: block;
+}
+
+/* Style for the photo modal */
+.photo-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    z-index: 1001;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.show-modal {
+    display: block;
+}
+
+.enlarged-photo {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.close-button {
+    margin-top: 10px;
+    background-color: #f27474;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+

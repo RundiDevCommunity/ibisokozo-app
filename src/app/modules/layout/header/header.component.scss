@@ -1,3 +1,10 @@
 #dialog:before{
     background: rgba(0, 0, 0, 12);
 }
+
+.menu::before{
+    background: rgba(0, 0, 0, 0.6);
+}
+.menu::after{
+    background: rgba(0, 0, 0, 0.6);
+}
