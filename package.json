@@ -21,6 +21,7 @@
     "@capacitor/android": "^5.2.2",
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "latest",
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "@ngxs/store": "^3.8.1",
     "bootstrap": "^5.3.1",
     "rxjs": "~7.8.0",
