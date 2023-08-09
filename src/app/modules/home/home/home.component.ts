@@ -14,12 +14,12 @@ export class HomeComponent {
 
   startGame(){
     this.router.navigateByUrl('/igisokozo')
-    const data = {
-      title: '',
-      type: 'success',
-      message: 'Failed to update agent informations',
-  };
-  this.store.dispatch(new OpenDialog(data));
+  //   const data = {
+  //     title: '',
+  //     type: 'success',
+  //     message: 'Failed to update agent informations',
+  // };
+  // this.store.dispatch(new OpenDialog(data));
   }
 
 }
