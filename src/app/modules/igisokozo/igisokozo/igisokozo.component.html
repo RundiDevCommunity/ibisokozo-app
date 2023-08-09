@@ -30,24 +30,41 @@ class="mt-5 ms-4 pt-5"
 >
 <div>
     <div class="d-flex w-100 justify-content-center fs-2 mt-5">
-        <span>So na nyoko bapfuye iki ?</span>
+        <span>{{igisokozo.igisokozo}}</span>
     </div>
     <div class="mx-5 mt-5 py-2 border border-dark rounded p-2">
         <div class="form-check fs-5"
-        (click)="openModal()"
+        *ngFor="let item of igisokozo.answers"
         role="button">
-            <input type="radio" id="choice" name="choice" class="form-check-input">
-            <label for="choice" class="form-check-label">Agahanga k'imbwa</label>
+            <input type="radio" id="choice" name="choice" class="form-check-input"
+        (click)="checkAnswer(item)"
+        [disabled]="answerDisabled"
+            >
+            <label for="choice" class="form-check-label">{{item.answer}}</label>
         </div>
-        <div class="form-check fs-5">
-            <input type="radio" id="choice" name="choice" class="form-check-input">
-            <label for="choice" class="form-check-label">Agahanga k'imbwa</label>
-        </div>
-        <div class="form-check fs-5">
-            <input type="radio" id="choice" name="choice" class="form-check-input">
-            <label for="choice" class="form-check-label">Agahanga k'imbwa</label>
+    
+    </div>
+    <div *ngIf="hasGivenUp" class="mx-5 mt-3">
+        <div class="d-grid">
+            <b>Inyishu nziza ni :</b>
+            <span>{{goodAnswer}}</span>
         </div>
     </div>
+</div>
+
+<div class="mt-5 me-5 float-end">
+    <button
+    (click)="getIgisokozo()"
+        type="button"
+        class="btn bg-primary text-white"
+    >
+        <b>
+        Igikurikira
+
+        </b>
+        <i class="fa fa-arrow-right"></i>
+        
+    </button>
 </div>
 
 </div>
@@ -82,6 +99,7 @@ class="mt-5 ms-4 pt-5"
         <b>Subiramwo</b>
         </b>
             <b
+            (click)="giveUp()"
                 type="button"
                 class="btn  btn-sm me-3 border border-dark"
             >
@@ -89,6 +107,7 @@ class="mt-5 ms-4 pt-5"
             </b>
 
             <button
+            (click)="getIgisokozo()"
                 type="button"
                 class="btn bg-primary text-white"
             >
@@ -99,6 +118,12 @@ class="mt-5 ms-4 pt-5"
                 <i class="fa fa-arrow-right"></i>
                 
             </button>
+        </div>
+        <div>
+            <div>
+                <b>Inyishu watanze :</b>
+                <span>{{providedAnswer}}</span>
+            </div>
         </div>
     </div>
     <div *ngIf="isCorrect">
@@ -111,7 +136,7 @@ class="mt-5 ms-4 pt-5"
             class="text-center"
         >
             Uragitoye 
-            <i class="fa fa-smile" style="color: rgb(255, 239, 65);"></i>
+            <i class="fa fa-smile"></i>
         </p>
        
       
@@ -126,6 +151,7 @@ class="mt-5 ms-4 pt-5"
          
 
             <button
+            (click)="getIgisokozo()"
                 type="button"
                 class="btn bg-primary text-white"
             >
