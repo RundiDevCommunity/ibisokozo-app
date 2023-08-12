@@ -89,6 +89,7 @@ export class IgisokozoComponent {
     this.getIgisokozo()
   }
   getIgisokozo(){
+    this.answerDisabled=false
     for(let i=0; i<this.ibisokozo.length; i++){
       this.igisokozo=this.ibisokozo[Math.floor(Math.random() * this.ibisokozo.length)]
     }
