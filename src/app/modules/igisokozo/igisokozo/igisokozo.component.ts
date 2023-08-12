@@ -96,6 +96,7 @@ export class IgisokozoComponent {
 
 
     this.closeModal();
+    
     this.hasGivenUp=false
     
 
