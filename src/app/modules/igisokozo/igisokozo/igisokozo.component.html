@@ -1,4 +1,5 @@
-<div class="ps-2 pt-1">
+<div
+style="transition: all 2s;" class="ps-2 pt-1">
     <app-go-back></app-go-back>
    
 </div>
@@ -17,15 +18,24 @@ class="mt-5 ms-4 pt-5"
                  style="border: 10%; border:none" 
                  class="bg-main rounded text-white p-2"
                  (click)="niruze=true">
+
                     <b class="me-1">Niruze</b>
-                    <i class="fa fa-arrow-right"></i>
+
                 </button>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                <img 
+                style="width: 70px;"
+                class="bg-main"
+                src="../../../assets/images/rocket.gif" 
+                alt="">
             </div>
 
         </div>
     </div>
 </div>
 <div 
+class="igisokozo"
 *ngIf="niruze"
 >
 <div>
@@ -36,7 +46,11 @@ class="mt-5 ms-4 pt-5"
         <div class="form-check fs-5"
         *ngFor="let item of igisokozo.answers"
         role="button">
-            <input type="radio" id="choice" name="choice" class="form-check-input"
+            <input 
+            type="radio"
+             id="choice"
+             name="choice" 
+             class="form-check-inputborder border-dark p-2 me-2 "
         (click)="checkAnswer(item)"
         [disabled]="answerDisabled"
             >
@@ -56,7 +70,7 @@ class="mt-5 ms-4 pt-5"
     <button
     (click)="getIgisokozo()"
         type="button"
-        class="btn bg-primary text-white"
+        class="btn bg-main text-white"
     >
         <b>
         Igikurikira
@@ -109,7 +123,8 @@ class="mt-5 ms-4 pt-5"
             <button
             (click)="getIgisokozo()"
                 type="button"
-                class="btn bg-primary text-white"
+                style="border: 10%; border:none" 
+                class="btn bg-main text-white"
             >
                 <b>
                 Igikurikira
@@ -138,6 +153,10 @@ class="mt-5 ms-4 pt-5"
             Uragitoye 
             <i class="fa fa-smile"></i>
         </p>
+        <img 
+        style="width: 100px;"
+        src="../../../assets/images/wired-outline-1103-confetti.gif" 
+        alt="">
        
       
         <div class="text-center mt-3 w-100 d-flex justify-content-around">
@@ -153,7 +172,8 @@ class="mt-5 ms-4 pt-5"
             <button
             (click)="getIgisokozo()"
                 type="button"
-                class="btn bg-primary text-white"
+                style="border: 10%; border:none" 
+                class="bg-main text-white"
             >
                 <b>
                 Igikurikira
