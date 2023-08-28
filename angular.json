@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/fonts/fonts.scss"
+
             ],
             "scripts": ["node_modules/@fortawesome/fontawesome-free/js/all.min.js"]
           },
@@ -90,10 +92,14 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/fonts/fonts.scss"
+
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/fonts/fonts.scss"
+
             ],
             "scripts": ["node_modules/@fortawesome/fontawesome-free/js/all.min.js"]
           }

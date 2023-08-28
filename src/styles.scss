@@ -1,5 +1,22 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto/Roboto-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto/Roboto-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+*{
+  font-family: 'Roboto', sans-serif; 
+}
 
 
 $font-sizes: (
@@ -22,7 +39,6 @@ $font-weights: (
   'normal': 400,
   'bold': 700,
 );
-
 @each $weight, $value in $font-weights {
   .font-#{$weight} {
     font-weight: $value;
@@ -33,7 +49,7 @@ $font-weights: (
 
 
 $colors: (
-  'main': #A45EE9,
+  'main': #3ded97,
   'grey': #b7b2b2,
   'black': #000,
   'white': #fff,
@@ -52,7 +68,7 @@ $colors: (
 }
 
 button:hover{
-  background-color: #286155;  
+  background-color: #18b86b;  
 }
 
 

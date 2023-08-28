@@ -1,15 +1,29 @@
-.igisokozo{
-    animation: anim1 infinite 3s;
-    -webkit-animation: anim1 1 2s;
-    position: relative;
-    transition: all 2s;
-    -webkit-transition: all 2s;
-    -moz-transition: all 2s;
-    -ms-transition: all 2s;
-    -o-transition: all 2s;
+.slide-in {
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
+button:hover{
+  background-color: #18b86b;  
+}
+.custom-radio {
+  background-color: #007BFF; /* Customize with your desired background color */
+  width: 20px; /* Adjust the width to your desired size */
+  height: 20px; /* Adjust the height to your desired size */
+  border-radius: 50%; /* Make it round */
+  margin-right: 10px; /* Add spacing between the radio button and label */
 }
 
-@keyframes anim1 {
-    0%{right: -100px;}
-    100%{right: 0px;}
-}
+
+  
