@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-go-back',
@@ -8,13 +10,23 @@ import { Location } from '@angular/common';
 })
 export class GoBackComponent {
 
-  constructor(public location: Location){
+  
+  
+    constructor(private location: Location, private router: Router) {}
+  
+    back() {
+      const currentRoute = this.router.url;
 
-  }
-
-
-  back(){
-    this.location.back();
-  }
+  
+      if (currentRoute !== '/') {
+        this.location.back();
+        console.log('Current', currentRoute);
+        
+      } else {
+        console.log('Cannot go back from empty route.');
+      }
+    }
+  
+  
 
 }
