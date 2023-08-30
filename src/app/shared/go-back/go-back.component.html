@@ -1,7 +1,12 @@
 <div
 (click)="back()"
  class="bg-white text-main d-flex justify-content-center align-items-center"
+ [ngClass]="
+ {
+  'bg-secondary': !showGoBack
+ }"
   style="border-radius: 50%; width:25px; height:25px"
   role="button">
-    <i class="fa fa-arrow-left"></i>
+    <i 
+    class="fa fa-arrow-left"></i>
 </div>

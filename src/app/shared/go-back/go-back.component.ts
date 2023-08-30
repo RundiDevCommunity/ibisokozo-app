@@ -9,18 +9,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./go-back.component.scss']
 })
 export class GoBackComponent {
+  showGoBack:boolean = false;
+  currentRoute:string ='/'
 
-  
+  ngDoCheck(){
+    if(this.currentRoute !== '/'){
+      this.showGoBack=true
+      console.log('checking');
+      
+
+    }
+  }
   
     constructor(private location: Location, private router: Router) {}
   
     back() {
-      const currentRoute = this.router.url;
+      this.currentRoute = this.router.url;
 
   
-      if (currentRoute !== '/') {
+      if (this.currentRoute !== '/') {
         this.location.back();
-        console.log('Current', currentRoute);
+        console.log('show route', this.showGoBack);
+        
+        console.log('Current', this.currentRoute);
         
       } else {
         console.log('Cannot go back from empty route.');

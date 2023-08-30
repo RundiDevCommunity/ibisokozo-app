@@ -10,7 +10,7 @@ export class MostScoresComponent {
 
 
   mostPlayers:Player[]=[
-    {photoUrl:'../../../assets/images/userprofile.png', name:'Don Delice', score:234},
+    {photoUrl:'../../../assets/images/profile.jpg', name:'Don Delice', score:234},
     {photoUrl:'../../../assets/images/userprofile.png', name:'Yannick', score:312},
     {photoUrl:'../../../assets/images/userprofile.png', name:'John', score:112},
 
