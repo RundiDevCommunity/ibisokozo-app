@@ -1,1 +1,1 @@
-##Urubuga rwagakino k'ibisokozo
+#The application of kirundi game called ibisokozo
