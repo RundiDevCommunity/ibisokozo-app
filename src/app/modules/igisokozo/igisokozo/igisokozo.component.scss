@@ -26,4 +26,22 @@ button:hover{
 }
 
 
+@keyframes slide {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide {
+  animation: slide 0.5s forwards;
+}
+
+.fs-x{
+  font-size: 60px;
+}
+
+
   
