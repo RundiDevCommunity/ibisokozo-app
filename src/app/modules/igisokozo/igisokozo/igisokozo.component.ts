@@ -312,6 +312,7 @@ closeModal(){
 }
 
 
+
 playCorrectAudio() {
   const audio: HTMLAudioElement = this.correctAudioElement.nativeElement;
   audio.play();
