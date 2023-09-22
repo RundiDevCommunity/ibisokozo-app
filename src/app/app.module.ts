@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from './modules/layout/layout.module';
 import { StatesModule } from './states/states.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { IgisokozoService } from './core/services/igisokozo.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,12 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     LayoutModule,
     StatesModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    IgisokozoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

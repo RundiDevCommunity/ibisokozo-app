@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { IgisokozoService } from 'src/app/core/services/igisokozo.service';
 
 @Component({
   selector: 'app-igisokozo',
@@ -237,7 +238,10 @@ export class IgisokozoComponent {
     
   ]
 
+  constructor(private igisokozoService : IgisokozoService){}
+
   ngOnInit(){
+    this.igisokozoService.getIbisokozo().subscribe()
     this.getIgisokozo()
   }
   getIgisokozo(){
@@ -311,7 +315,21 @@ closeModal(){
 
 }
 
+/**
+ Certainly, I can help you understand these two links and what they typically represent in the context of a game application development.
 
+1. **https://ibisokozo.ksquad.dev/rest_api/**
+   - This URL appears to be the endpoint for a RESTful API. REST (Representational State Transfer) is a common architectural style for designing networked applications. In the context of your game application, a REST API is likely used for communication between the frontend (what the user interacts with) and the backend (the server that processes requests and manages data).
+
+   - REST APIs use standard HTTP methods (GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources. These resources could be various game-related data like player profiles, game scores, or in-game items. When the frontend sends a request to this URL, it's likely trying to retrieve or manipulate some data related to the game.
+
+2. **https://ibisokozo.ksquad.dev/graphql_api/**
+   - This URL appears to be the endpoint for a GraphQL API. GraphQL is another way to design APIs, and it offers more flexibility compared to REST. In a GraphQL API, clients can request exactly the data they need, and the server responds with a JSON object containing that data.
+
+   - GraphQL allows clients (such as your frontend) to specify the structure of the response they want, which can help reduce over-fetching or under-fetching of data. This can be especially useful in complex applications like games, where different parts of the game might need different sets of data.
+
+In summary, these two URLs likely represent different ways that your game application communicates with the backend server. The REST API follows a more traditional approach with predefined endpoints for specific actions, while the GraphQL API provides more flexibility in data retrieval by allowing clients to request exactly what they need. Depending on the requirements of your game, you might use one or both of these APIs to handle various aspects of data exchange between the frontend and backend.
+ */
 
 playCorrectAudio() {
   const audio: HTMLAudioElement = this.correctAudioElement.nativeElement;
@@ -323,7 +341,7 @@ playCorrectAudio() {
   setTimeout(() => {
     this.correctAnswerImageVisible = false;
     this.animateImage=false
-  }, 2000);
+  }, 1000);
 }
 
 playIncorrectAudio() {
