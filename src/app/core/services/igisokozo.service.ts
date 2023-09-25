@@ -10,6 +10,8 @@ export class IgisokozoService {
     //
    }
 
+
+
   getIbisokozo(){
     const header={
       'content-type': 'application/json',

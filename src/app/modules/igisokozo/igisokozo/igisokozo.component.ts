@@ -29,8 +29,8 @@ export class IgisokozoComponent {
       answers:[
         {answer:"Agahanga k'imbwa", isCorrect:false},
         {answer:"Amabere y'imbwa", isCorrect:false},
-        {answer:"Akana kaj'iwabo", isCorrect:true},
-        {answer:"Akotsi k'abungere", isCorrect:false},
+        {answer:"Akana kaj'iwabo", isCorrect:false},
+        {answer:"Akotsi k'abungere", isCorrect:true},
 
 
       ]
