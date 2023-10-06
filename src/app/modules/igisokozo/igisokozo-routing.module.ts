@@ -2,9 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { IgisokozoComponent } from './igisokozo/igisokozo.component';
+import { LevelOneComponent } from './level-one/level-one.component';
+import { LevelTwoComponent } from './level-two/level-two.component';
+import { LevelThreeComponent } from './level-three/level-three.component';
 
 const routes:Routes=[
-  {path: '', component:IgisokozoComponent}
+  {path: '', component:IgisokozoComponent},
+  {path:'level-1', component:LevelOneComponent},
+  {path:'level-2', component:LevelTwoComponent},
+  {path:'level-3', component:LevelThreeComponent},
+
+
 ]
 
 @NgModule({

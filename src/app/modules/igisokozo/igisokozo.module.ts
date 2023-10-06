@@ -4,17 +4,21 @@ import { IgisokozoComponent } from './igisokozo/igisokozo.component';
 import { IgisokozoRoutingModule } from './igisokozo-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LevelOneComponent } from './level-one/level-one.component';
 
 
 
 @NgModule({
   declarations: [
-    IgisokozoComponent
+    IgisokozoComponent,
+    LevelOneComponent
   ],
   imports: [
     CommonModule,
     IgisokozoRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
+
   ]
 })
 export class IgisokozoModule { }
