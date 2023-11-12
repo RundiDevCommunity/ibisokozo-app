@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IgisokozoComponent } from './igisokozo.component';
+import { IgisokozoHomeComponent } from './igisokozo-home.component';
 
 describe('IgisokozoComponent', () => {
-  let component: IgisokozoComponent;
-  let fixture: ComponentFixture<IgisokozoComponent>;
+  let component: IgisokozoHomeComponent;
+  let fixture: ComponentFixture<IgisokozoHomeComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IgisokozoComponent]
+      declarations: [IgisokozoHomeComponent]
     });
-    fixture = TestBed.createComponent(IgisokozoComponent);
+    fixture = TestBed.createComponent(IgisokozoHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
