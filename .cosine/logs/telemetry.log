@@ -1,0 +1,16 @@
+
+INFO [2023-11-17T22:01:19.361Z]: Split failed to initialize
+ERROR [2023-11-17T22:01:19.378Z]: Split initialisation timed out in 12000ms.
+INFO [2023-11-17T22:01:19.379Z]: Tracking open event
+INFO [2023-11-17T22:01:19.390Z]: Creating language service
+INFO [2023-11-17T22:01:19.391Z]: Creating settings service
+INFO [2023-11-17T22:01:19.392Z]: Creating workspace service
+INFO [2023-11-17T22:01:19.393Z]: Creating remote AI
+INFO [2023-11-17T22:01:19.394Z]: Creating feedback service
+INFO [2023-11-17T22:01:19.394Z]: Creating share service
+INFO [2023-11-17T22:01:19.394Z]: Creating workspace controller
+INFO [2023-11-17T22:01:19.395Z]: Enabling workspace listeners
+INFO [2023-11-17T22:01:19.398Z]: Creating source
+INFO [2023-11-17T22:01:19.399Z]: Initializing workspace controller
+INFO [2023-11-17T22:01:19.404Z]: opened
+INFO [2023-11-17T22:01:19.404Z]: {}
