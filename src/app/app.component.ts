@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from './core/services/auth.service';
+import { Store } from '@ngxs/store';
+import { SetAuthenticated } from './states/auth/auth.state';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-ibisokozo-app';
+
+  constructor(
+    private authService : AuthService,
+    private store : Store
+  ){
+    //
+  }
+
+  ngOnInit(){
+
+  
+
+  }
 }

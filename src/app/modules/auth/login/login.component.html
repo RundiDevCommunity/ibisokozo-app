@@ -8,15 +8,29 @@
     </div>
 
     <div class="w-100 d-flex justify-content-center mt-5">
-        <div class="">
+        <div 
+        class=""
+        [formGroup]="loginForm"
+        (ngSubmit)="login()">
             <div class="d-grid mb-2">
-                <label for="email" class="mb-1">Email Adress</label>
-                <input type="email" class="form-control border input rounded" id="email" placeholder="Email">
+                <label for="email" class="mb-1">Username</label>
+                <input
+                 type="text" 
+                 class="form-control border input rounded" 
+                 id="username" 
+                 placeholder="Username"
+                 formControlName="username"
+                 >
             </div>
             <div class="d-grid">
                 <label for="password" class="mb-1">Password</label>
                 <div class="input-group">
-                    <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control border input rounded" id="password" placeholder="Password">
+                    <input 
+                    type="{{ passwordVisible ? 'text' : 'password' }}" 
+                    class="form-control border input rounded" 
+                    id="password" 
+                    placeholder="Password"
+                    formControlName="password">
                     <span class="password-toggle" (click)="togglePasswordVisibility()">
                         <i class="fa" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
                     </span>
@@ -30,7 +44,10 @@
             </div><br><br><br>
 
             <div class="w-100 d-flex justify-content-center mt-4">
-                <button class="bg-main rounded text-white p-2 px-5 border border-none">
+                <button 
+                type="submit"
+                (click)="login()"
+                class="bg-main rounded text-white p-2 px-5 border border-none">
                     <b>Login</b>
                 </button>
 

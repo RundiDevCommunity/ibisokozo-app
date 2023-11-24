@@ -8,5 +8,7 @@ import { IgisokozoService } from 'src/app/core/services/igisokozo.service';
 })
 export class IgisokozoHomeComponent {
 
+  
+
 
 }
