@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { AuthState, SetAuthenticated } from 'src/app/states/auth/auth.state';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +14,27 @@ export class HeaderComponent {
   isMenuShown: boolean = false
   selectedMenu:string='';
   favDialog:any;
+  isAuthenticated: boolean = false
+  isAuthenticated$:Observable<boolean>
+  
 
-  constructor(private router:Router){}
+  constructor(
+    private router:Router,
+    private store : Store){
+
+   this.isAuthenticated$= this.store.select(AuthState.isAuthenticated)
+
+  }
 
 
+  ngOnInit(){
+
+    this.isAuthenticated$.subscribe({
+      next:(isAuthenticated:boolean) =>{
+        this.isAuthenticated=isAuthenticated
+      }
+    })
+  }
   toggleMenu(){
     this.isMenuShown=!this.isMenuShown
   }
@@ -28,9 +48,10 @@ export class HeaderComponent {
 
   logout(){
     this.router.navigateByUrl('/login')
+    this.store.dispatch(new SetAuthenticated(false, null))
+
     
   }
-//how can i close this modal?
   openModal() {
     // this.modal.show();
     this.favDialog = document.getElementById('favDialog');

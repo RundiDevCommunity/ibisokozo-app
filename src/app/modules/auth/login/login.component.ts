@@ -45,7 +45,7 @@ ngOnInit(){
 
       console.log(response)
 
-      this.store.dispatch(new SetAuthenticated(false, response.access))
+      this.store.dispatch(new SetAuthenticated(true, response.access))
       this.router.navigate(['/'])
 
 

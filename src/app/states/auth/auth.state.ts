@@ -1,7 +1,7 @@
 // auth.state.ts
 
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 
 export class SetAuthenticated {
   static readonly type = '[Auth] Set Authenticated';
@@ -22,6 +22,11 @@ interface AuthStateModel {
 })
 @Injectable()
 export class AuthState {
+
+  @Selector()
+  static isAuthenticated(state: AuthStateModel) {
+    return state.isAuthenticated;
+  }
   @Action(SetAuthenticated)
   setAuthenticated(ctx: StateContext<AuthStateModel>, action: SetAuthenticated) {
     ctx.patchState({
