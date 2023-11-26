@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/core/services/general.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private generalService : GeneralService
+    ) {}
 
   ngOnInit() {
+
+    this.getCanvas()
+
+    this.generalService.disableGoBack()
+
+  }
+
+
+  getCanvas(){
     const canvasBody = document.getElementById("canvas") as HTMLCanvasElement;
     const drawArea:any = canvasBody.getContext("2d");
     let w: number, h: number;
@@ -131,10 +144,15 @@ export class HomeComponent implements OnInit {
     });
 
     setup();
+
   }
 
   startGame() {
     this.router.navigateByUrl('/igisokozo');
     // Dispatch actions or perform other actions as needed...
+  }
+
+  ngOnDestroy(){
+    this.generalService.enableGoBack()
   }
 }

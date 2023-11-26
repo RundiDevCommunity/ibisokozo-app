@@ -18,8 +18,10 @@ export class AuthService {
 
   login(body:any){
 
-    return this.apiService.post('/token/', body)
+    return this.apiService.post('/login/', body)
   }
+
+
 
 
 }

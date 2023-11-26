@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { GeneralService } from 'src/app/core/services/general.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { AuthState, SetAuthenticated } from 'src/app/states/auth/auth.state';
 
 @Component({
@@ -16,11 +18,14 @@ export class HeaderComponent {
   favDialog:any;
   isAuthenticated: boolean = false
   isAuthenticated$:Observable<boolean>
+  canGoBack:boolean = false
   
 
   constructor(
     private router:Router,
-    private store : Store){
+    private store : Store,
+    private generalService : GeneralService,
+    private userService : UserService){
 
    this.isAuthenticated$= this.store.select(AuthState.isAuthenticated)
 
@@ -33,6 +38,11 @@ export class HeaderComponent {
       next:(isAuthenticated:boolean) =>{
         this.isAuthenticated=isAuthenticated
       }
+    })
+
+    this.userService.getUserInfo().subscribe()
+    this.generalService.canGoBack$.subscribe((back:boolean)=>{
+      this.canGoBack=back
     })
   }
   toggleMenu(){

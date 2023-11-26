@@ -27,6 +27,11 @@ export class AuthState {
   static isAuthenticated(state: AuthStateModel) {
     return state.isAuthenticated;
   }
+
+  @Selector()
+  static token(state: AuthStateModel) {
+    return state.token;
+  }
   @Action(SetAuthenticated)
   setAuthenticated(ctx: StateContext<AuthStateModel>, action: SetAuthenticated) {
     ctx.patchState({

@@ -1,7 +1,12 @@
 <div class="bg-main w-100 d-flex justify-content-between align-items-center" style="z-index:25">
  
-    <div class="p-1 d-flex align-items-center" routerLink="" role="button">
+    <div 
+    class="p-1 ps-2 d-flex align-items-center" 
+    routerLink="" 
+    role="button"
+    >
         <div
+        *ngIf="canGoBack"
         class="pe-2">
             <app-go-back></app-go-back>
            
