@@ -23,20 +23,36 @@ token$:Observable<any>
    ngOnInit(){
     this.token$.subscribe(token =>{
       this.token=token
+
+      console.log('toookk', token);
+      
     })
    }
 
-getUserInfo(){
+getUserInfo(token:string){
 
-  console.log('yyy', this.token);
   
   const header={
     'content-type': 'application/json',
-    'authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwOTA5MjU4LCJqdGkiOiJhYjJhZTZmYTM1ODI0Njc3OWRhOThlN2ZhMGQ0NjExNCIsInVzZXJfaWQiOjF9.s0efdkRVdKz0HhOZxBDQR3bIARL5pxCvCvgvTVRYPo0'
+    'authorization' : `Bearer ${token}`
 
   }
 
   return this.http.get('http://127.0.0.1:8000/api/user/', {headers: header})
+
+
+}
+
+getScore(token:string){
+
+  
+  const header={
+    'content-type': 'application/json',
+    'authorization' : `Bearer ${token}`
+
+  }
+
+  return this.http.get('http://127.0.0.1:8000/api/score/', {headers: header})
 
 
 }

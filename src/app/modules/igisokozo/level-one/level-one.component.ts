@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { IgisokozoService } from 'src/app/core/services/igisokozo.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { AuthState } from 'src/app/states/auth/auth.state';
 
 @Component({
   selector: 'app-level-one',
@@ -20,300 +24,107 @@ export class LevelOneComponent implements OnInit {
   @ViewChild('incorrectAudioElement', { static: false }) incorrectAudioElement: ElementRef |any;
   correctAnswerImageVisible: boolean = false;
   animateImage: boolean = false;
-  score:number=0
+  score:number=0;
+  token:string=''
+  token$:Observable<any>
+  highlightAnswers:boolean=false
+  selectedAnswer:string=''
+  isAuthenticated$:Observable<boolean>
+  isAuthenticated:boolean=false
+
+  
 
 
-  ibisokozo=[
-    {
-      igisokozo:'Kararengera', 
-      answers:[
-        {answer:"Agahanga k'imbwa", isCorrect:false},
-        {answer:"Amabere y'imbwa", isCorrect:false},
-        {answer:"Akana kaj'iwabo", isCorrect:false},
-        {answer:"Akotsi k'abungere", isCorrect:true},
+ 
+  constructor(
+    private igisokozoService : IgisokozoService,
+    private store : Store,
+    private userService : UserService){
+   this.token$= this.store.select(AuthState.token)
+   this.isAuthenticated$=this.store.select(AuthState.isAuthenticated)
 
-
-      ]
-    },
-    {
-      igisokozo:'Gira so katamobwa', 
-      answers:[
-        {answer:"Ubuhanza", isCorrect:false},
-        {answer:"Agahanga k'imbwa", isCorrect:true},
-        {answer:"Umutwe w'inka", isCorrect:false},
-        {answer:"Ukuguru", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Ane meza', 
-      answers:[
-        {answer:"Amaguru y'inka", isCorrect:false},
-        {answer:"Amenyo y'imbere", isCorrect:false},
-        {answer:"Amabere y'inka", isCorrect:true},
-        {answer:"Amapine y'imodoka", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Karasimvye miheneko', 
-      answers:[
-        {answer:"Akana gasimvye uruzi", isCorrect:false},
-        {answer:"Imbwa isimvye urugo", isCorrect:false},
-        {answer:"Agahene gasimvye urugo", isCorrect:false},
-        {answer:"Agahene gasimvye umugazo", isCorrect:true},
-
-
-      ]
-    },
-    {
-      igisokozo:'Aho hepfo haciye ivyiza bisa', 
-      answers:[
-        {answer:"Abana b'amahasa", isCorrect:false},
-        {answer:"Inka n'umugabo", isCorrect:false},
-        {answer:"Umuzungu mumodoka", isCorrect:false},
-        {answer:"Umuzungu kw'ipikipiki", isCorrect:true},
-
-
-      ]
-    },
-    {
-      igisokozo:'Aho hepfo haciye ingoma itavuga', 
-      answers:[
-        {answer:"Umugore afise inda", isCorrect:true},
-        {answer:"Ingoma yatobotse", isCorrect:false},
-        {answer:"Ingoma y'igisharizo", isCorrect:false},
-        {answer:"Inka ihaze", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Icutabonye', 
-      answers:[
-        {answer:"Ivuka ryawe", isCorrect:false},
-        {answer:"Umwungu womurubibe", isCorrect:false},
-        {answer:"Ubugeni bwaso na nyoko", isCorrect:true},
-        {answer:"Akari munda y'ingoma", isCorrect:false},
-
-
-      ]
-    },
-     {
-      igisokozo:'Abatama bakera baca imanza bunamye', 
-      answers:[
-        {answer:"Umugabo yicisha bugufi", isCorrect:false},
-        {answer:"Imigondoro y'ibiharage", isCorrect:true},
-        {answer:"Igiti kigoramye", isCorrect:false},
-        {answer:"Intama", isCorrect:false},
-
-
-      ]
-    },
-     {
-      igisokozo:'Abatama bakera baca imanza bunamye', 
-      answers:[
-        {answer:"Umugabo yicisha bugufi", isCorrect:false},
-        {answer:"Imigondoro y'ibiharage", isCorrect:true},
-        {answer:"Igiti kigoramye", isCorrect:false},
-        {answer:"Intama", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Ndakibona singifata', 
-      answers:[
-        {answer:"Inzahabu", isCorrect:false},
-        {answer:"Igitutu", isCorrect:true},
-        {answer:"Icontari buronke", isCorrect:false},
-        {answer:"Umuyaga", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Umwana wanje yokunesha ari muto', 
-      answers:[
-        {answer:"Ivubi", isCorrect:false},
-        {answer:"Akanyegeri", isCorrect:false},
-        {answer:"Ifundi", isCorrect:false},
-        {answer:"Uruyuki", isCorrect:true},
-
-
-      ]
-    },
-    {
-      igisokozo:'Abana banje bakubita ibiganza hirya no hino', 
-      answers:[
-        {answer:"Intoke", isCorrect:false},
-        {answer:"Abatamvyi", isCorrect:false},
-        {answer:"Inzuzi", isCorrect:true},
-        {answer:"Amashami y'igiti", isCorrect:false},
-
-
-      ]
-    },
-    {
-      igisokozo:'Abana banje bakubita ibiganza hirya no hino', 
-      answers:[
-        {answer:"Intoke", isCorrect:false},
-        {answer:"Abatamvyi", isCorrect:false},
-        {answer:"Inzuzi", isCorrect:true},
-        {answer:"Amashami y'igiti", isCorrect:false},
-
-
-      ]
-    },
-     {
-      igisokozo:'Uhmmm', 
-      answers:[
-        {answer:"Igikamiwe make", isCorrect:true},
-        {answer:"Inzoka munda", isCorrect:false},
-        {answer:"Umugabo yemeye atemeye", isCorrect:false},
-        {answer:"Ikidumu kigaragara", isCorrect:false},
-
-
-      ]
-    },
-       {
-      igisokozo:'Aha twese turaririye umwe', 
-      answers:[
-        {answer:"Umuvyeyi wacu", isCorrect:false},
-        {answer:"Inkono kuziko", isCorrect:true},
-        {answer:"Umwami", isCorrect:false},
-        {answer:"Ingabo z'umukuru w'igihugu", isCorrect:false},
-
-
-      ]
-    },
-           {
-      igisokozo:"Wigera mubarembe war'umurembe ?", 
-      answers:[
-        {answer:"Umuzungu mubirabure", isCorrect:false},
-        {answer:"Inka yera muzirabura", isCorrect:false},
-        {answer:"Impene muntama", isCorrect:true},
-        {answer:"Intama munka", isCorrect:false},
-
-
-      ]
-    },
-         {
-      igisokozo:"Abo kwa Ruringaniza bambariye imiringa mu kuzimu.", 
-      answers:[
-        {answer:"Ibijumbu", isCorrect:true},
-        {answer:"Imfuku", isCorrect:false},
-        {answer:"Imyumbati", isCorrect:false},
-        {answer:"Iyo hasi", isCorrect:false},
-
-
-      ]
-    },
-      {
-      igisokozo:"Karahinda iduri", 
-      answers:[
-        {answer:"Akana gakubiswe", isCorrect:false},
-        {answer:"Akato mumpange", isCorrect:true},
-        {answer:"Inanga", isCorrect:false},
-        {answer:"Uruhwa", isCorrect:false},
-
-
-      ]
-    },
-      {
-      igisokozo:"Urabona ngo bitugu vya sogokuru ansimbira urugo!", 
-      answers:[
-        {answer:"Umugabo asumba urugo", isCorrect:false},
-        {answer:"Umwana asumba se", isCorrect:false},
-        {answer:"Ikivumvuri", isCorrect:true},
-        {answer:"Igifyera", isCorrect:false},
-
-
-      ]
-    },
-    
-
-    
-  ]
-
-  constructor(private igisokozoService : IgisokozoService){}
+  }
 
   ngOnInit(){
     this.igisokozoService.getIbisokozo().subscribe()
     this.getIgisokozo()
+
+    this.token$.subscribe(token =>{
+      this.token=token
+    })
+
+    this.isAuthenticated$.subscribe(isAuthenticated =>{
+      this.isAuthenticated=isAuthenticated
+
+      if(isAuthenticated){
+      this.getScore()
+
+      }
+    })
+
+
+
+
   }
   getIgisokozo(){
+    this.highlightAnswers=false
     this.answerDisabled=false
-    for(let i=0; i<this.ibisokozo.length; i++){
-      this.igisokozo=this.ibisokozo[Math.floor(Math.random() * this.ibisokozo.length)]
 
-      console.log(this.ibisokozo.length)
-    this.closeModal();
-
-    }
+    this.igisokozoService.getIbisokozo().subscribe({
+      next:(igisokozo:any)=>{
+        this.igisokozo=igisokozo
+      }
+    })
 
     
-    this.hasGivenUp=false
-    
+
+  }
+
+  getScore(){
+    this.userService.getScore(this.token).subscribe((score:any)=>{
+      this.score = score.results[0].score
+    })
 
   }
   checkAnswer(item: any) {
-    this.openModal();
-    this.isCorrect = item.isCorrect;
-    this.providedAnswer=item.answer
-
-    if (this.isCorrect) {
-      this.playCorrectAudio(); 
-      this.score++
-    } else {
-      this.playIncorrectAudio(); 
-    }
-    
-      
-  
-  }
-
-getIgisokozo2(){
-  for(let i=0; i<this.ibisokozo.length; i++){
-    this.igisokozo=this.ibisokozo[Math.floor(Math.random() * this.ibisokozo.length)]
-  this.closeModal();
-
-  }
-
-}
-
-  
-
-  giveUp(){
-    this.closeModal()
-    this.hasGivenUp=true
-    if(this.hasGivenUp){
-      const correctAnswer = this.igisokozo.answers.find((answer:any) => answer.isCorrect);
-    
-      this.goodAnswer = correctAnswer.answer;
-
-    }
+    this.highlightAnswers=true
     this.answerDisabled=true
+    this.selectedAnswer=item
+
+
+    if(this.isAuthenticated){
+
+      this.igisokozoService.checkAnswer(item, this.token).subscribe((answer:any) =>{
+
+        if(answer.correct){
+          this.isCorrect=true
+          this.playCorrectAudio()
+
+        }else{
+          this.playIncorrectAudio()
+        }
+        console.log(this.isAuthenticated);
+      this.getScore()  
+
+
+    console.log('aaa', item, this.igisokozo.inyishu.inyishu);
+      
+      })
+
+      }else{
+        if(item == this.igisokozo.inyishu.inyishu){
+          this.score+=1
+          console.log('scc');
+          this.isCorrect=true
+          this.playCorrectAudio()
+          
+        }else{
+          this.isCorrect=false
+          this.playIncorrectAudio()
+        }
+      }
 
   }
-  openModal() {
-    // this.modal.show();
-    this.favDialog = document.getElementById('myDialog');
-    if (this.favDialog) {
-        this.favDialog.showModal();
-
-    }
-}
-
-closeModal(){
-  this.favDialog = document.getElementById('myDialog');
-  if (this.favDialog) {
-      this.favDialog.close();
-  }
-
-}
 
 
 

@@ -19,6 +19,9 @@ export class HeaderComponent {
   isAuthenticated: boolean = false
   isAuthenticated$:Observable<boolean>
   canGoBack:boolean = false
+  token:string=''
+  token$:Observable<any>
+  userInfo:any
   
 
   constructor(
@@ -28,6 +31,8 @@ export class HeaderComponent {
     private userService : UserService){
 
    this.isAuthenticated$= this.store.select(AuthState.isAuthenticated)
+   this.token$= this.store.select(AuthState.token)
+
 
   }
 
@@ -40,10 +45,27 @@ export class HeaderComponent {
       }
     })
 
-    this.userService.getUserInfo().subscribe()
-    this.generalService.canGoBack$.subscribe((back:boolean)=>{
-      this.canGoBack=back
+    this.token$.subscribe((token:string)=>{
+      this.token = token
+
+      this.userService.getUserInfo(this.token).subscribe(
+        {next: (userInfo:any)=>{
+          this.userInfo=userInfo.results[0]
+        },
+      error: (err:any)=>{
+        console.log('ellleeehh',err);
+
+    this.store.dispatch(new SetAuthenticated(false, null))
+
+
+
+        
+      }})
+      this.generalService.canGoBack$.subscribe((back:boolean)=>{
+        this.canGoBack=back
+      })
     })
+   
   }
   toggleMenu(){
     this.isMenuShown=!this.isMenuShown

@@ -77,5 +77,15 @@ button:hover{
 
 }
 
+.not-clickable{
+  pointer-events: none;
+  opacity: .5;
+}
+
+.clickable{
+  pointer-events:all;
+  opacity: 1;
+}
+
 
 

@@ -12,8 +12,7 @@
         class=""
         [formGroup]="loginForm"
         (ngSubmit)="login()">
-            <div class="d-grid mb-2">
-                <label for="email" class="mb-1">Username</label>
+            <div class="d-grid mb-2 form-floating">
                 <input
                  type="text" 
                  class="form-control border input rounded" 
@@ -21,18 +20,35 @@
                  placeholder="Username"
                  formControlName="username"
                  >
+                <label for="email" class="">Akazina ukoresha</label>
+
             </div>
             <div class="d-grid">
-                <label for="password" class="mb-1">Password</label>
                 <div class="input-group">
-                    <input 
+                    <div class="form-floating">
+                        <input 
                     type="{{ passwordVisible ? 'text' : 'password' }}" 
                     class="form-control border input rounded" 
                     id="password" 
                     placeholder="Password"
                     formControlName="password">
-                    <span class="password-toggle" (click)="togglePasswordVisibility()">
-                        <i class="fa" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
+                  <label for="password" class="mb-1">Akabanga</label>
+
+                    </div>
+                    
+                    <span class="password-toggle" 
+                    >
+                    <span
+                    (click)="togglePasswordVisibility()"
+                    *ngIf="passwordVisible">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                    <span
+                    (click)="togglePasswordVisibility()"
+                    *ngIf="!passwordVisible">
+                        <i class="fa fa-eye-slash"></i>
+                    </span>
+                                            
                     </span>
                 </div>
             </div>

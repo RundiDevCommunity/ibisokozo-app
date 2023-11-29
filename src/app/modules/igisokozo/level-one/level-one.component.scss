@@ -43,5 +43,22 @@ button:hover{
   font-size: 60px;
 }
 
+.initial-status{
+  border:2px solid black;
+  color:black
+}
+
+.success-status{
+  border:2px solid #36AE7C;
+  color:#36AE7C;
+
+}
+
+.danger-status{
+  border:2px solid rgb(237, 12, 12);
+  color:rgb(237, 12, 12)
+}
+
+
 
   
