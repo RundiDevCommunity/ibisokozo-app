@@ -2,27 +2,8 @@
     <app-go-back></app-go-back>
 </div> -->
 
-<div class="most-scores">
-    <h2>Most Scores</h2>
-    <ul class="list-unstyled user-list">
-        <li *ngFor="let player of mostPlayers; let i = index">
-            <div class="user-card d-flex align-items-center p-2 border rounded">
-                <div class="user-rank me-3">{{i + 1}}</div>
-                <!-- Attach click event to open the photo -->
-                <div role="button">
-                <img [src]="player.photoUrl" alt="User Photo" class="user-photo rounded-circle" (click)="openPhoto(player.photoUrl)">
-
-
-                </div>
-                <div class="user-info">
-                    <div class="user-name fw-bold">{{player.name}}</div>
-                    <div class="user-points text-muted">{{player.score}} points</div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
+<!--  -->
+<div style="width: 337px; height: 680px; background: #36AE7C; border-radius: 30px"></div>
 <!-- Enlarged photo modal -->
 <div class="photo-modal" [ngClass]="{ 'show-modal': isPhotoOpen }">
     <b

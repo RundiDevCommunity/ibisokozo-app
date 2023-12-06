@@ -60,14 +60,17 @@ class="igisokozo slide-in"
 <div
 class="slide-in px-3"
 *ngIf="igisokozo">
-    <div class="w-100 d-grid justify-content-between">
-        <div class="bg-light mt-1 rounded p-0 border border-warning">
+    <div 
+    class="w-100 d-grid justify-content-between">
+        <div 
+         *ngIf="!isAuthenticated"
+         class="bg-light mt-1 rounded p-0 border border-warning">
             <span class="m-1">uripfuza kubika amanota yawe ? <b 
                 routerLink="/login"
                 role="button"
                 class="text-main">injira</b></span>
         </div>
-        <span>amanota : {{score}}</span>
+        <b class="float-end">amanota : {{score}}</b>
     </div>
     <div class="d-flex w-100 justify-content-center fs-2 mt-3 mb-2 slide-in">
         <span class="slide-in">
