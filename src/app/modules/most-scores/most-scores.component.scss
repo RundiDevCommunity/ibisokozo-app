@@ -100,3 +100,25 @@ tr, td, th{
     cursor: pointer;
 }
 
+.clip-1{
+    clip-path: polygon(15.87% 10.25%, 86.70% 13.50%, 118.86% 56.25%, 34.55% 63%);
+    background-color: #A7D4C0;
+    width: 250px;
+    height: 400px;
+
+}
+
+.clip-2{
+    clip-path: polygon(5.21% 4.00%, 95.92% -0.25%, 106.07% 55.5%, -16.8% 61.5%);
+    background-color: #A7D4C0;
+    width: 250px;
+    height: 400px;
+}
+
+.clip-3{
+    clip-path: polygon(15.48% 8.75%, 88.37% 15.25%, 75.92% 61%, -19.43% 50.5%);
+    background-color: #A7D4C0;
+    width: 250px;
+height: 400px;
+}
+
