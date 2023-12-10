@@ -1,6 +1,6 @@
 
 
-<audio #correctAudioElement src="../../../assets/audios/claps-44774.mp3" controls hidden></audio>
+<audio #correctAudioElement src="../../../assets/audios/claps.mp3" controls hidden></audio>
 <audio #incorrectAudioElement src="../../../assets/audios/negative_beeps-6008.mp3" controls hidden></audio>
 
      <div class="d-flex justify-content-center">
@@ -94,6 +94,7 @@ class="slide-in px-3"
 
             >
              <input 
+            role="button"
              type="radio"
              style="visibility: hidden;"
              id="choice"
@@ -103,6 +104,8 @@ class="slide-in px-3"
             
             >
             <label 
+            role="button"
+
             for="choice"
             class="initial-status rounded p-2 w-100 me-2 mb-1"
             [ngClass]="{
