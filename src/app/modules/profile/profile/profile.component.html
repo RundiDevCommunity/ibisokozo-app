@@ -4,7 +4,9 @@
        
     </div> -->
     <div class="row">
-        <div class="">
+        <div 
+        *ngIf="user"
+        class="">
             <div class="profile-info text-center d-grid">
                 <div class="d-flex justify-content-center">
                     <img 
@@ -18,7 +20,7 @@
                 <b
                 *ngIf="!editProfile" 
                 class="profile-name mt-3"
-                style="font-size: 20px;">Don Delice Dushime</b>
+                style="font-size: 20px;">{{user.first_name}} {{user.last_name}}</b>
                 <div
                 *ngIf="editProfile" 
                 class="w-100 d-flex justify-content-center mt-3">
@@ -30,13 +32,13 @@
                 </div>
                 
                 <p class="profile-points text-muted">
-                    <i>@dondelice257</i>
+                    <i>{{user.username}}</i>
                 </p>
                 <p class="profile-points text-muted">
                     <b
                     class="fs-4"
                     style="font-style: oblique;"
-                    >134 points</b>
+                    >{{user.score}} points</b>
                 </p>
             </div>
 

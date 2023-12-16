@@ -43,9 +43,9 @@ ngOnInit(){
   this.authService.login(this.loginForm.value).subscribe({
     next :(response) =>{
 
-      console.log(response)
+      console.log('olllaah',response)
 
-      this.store.dispatch(new SetAuthenticated(true, response.access))
+      this.store.dispatch(new SetAuthenticated(true, response.token))
       this.router.navigate(['/'])
 
 

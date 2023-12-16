@@ -7,14 +7,16 @@
             class="fs-5"
             role="button"
             title="shira kumwanya"
+            (click)="refresh()"
             >
                 <i class="fa fa-refresh"></i>
             </span>
         </div>
         <div class="mt-3">
             <div>
-                <div class="d-flex justify-content-around align-items-start
-                ">
+                <div 
+                class="d-flex justify-content-around align-items-start"
+                *ngIf="users">
                     <div class="d-grid"
                     (click)="openPhoto('../../../assets/images/profile.jpg')"
                     style="margin-top: 2.7rem;">
@@ -27,8 +29,8 @@
 
                             </div>
                             <div class="mt-2 d-grid">
-                            <b>Don Delice</b>
-                            <b class="text-center">Dushime</b>
+                            <b>{{users[1].first_name}}</b>
+                            <b class="text-center">{{users[1].last_name}}</b>
 
 
                             </div>
@@ -47,8 +49,8 @@
 
                             </div>
                             <div class="mt-2 d-grid">
-                                <b>Don Delice</b>
-                                <b class="text-center">Dushime</b>
+                                <b>{{users[0].first_name}}</b>
+                                <b class="text-center">{{users[0].last_name}}</b>
     
     
                                 </div>
@@ -67,8 +69,8 @@
 
                             </div>
                             <div class="mt-2 d-grid">
-                                <b>Don Delice</b>
-                                <b class="text-center">Dushime</b>
+                                <b>{{users[2].first_name}}</b>
+                                <b class="text-center">{{users[2].last_name}}</b>
     
     
                                 </div>
@@ -88,14 +90,14 @@
                         <div class="d-grid text-center mt-5 "
                         style="font-weight: 800; padding-top:-100px; padding-left:-15px">
                             <b style="font-size:100px; ">2</b>
-                            <b style="margin-top:-20px; margin-left:30px">140 pts</b>
+                            <b style="margin-top:-20px; margin-left:30px">{{users[1].score}} pts</b>
                         </div>
                     </div>
                     <div class="clip-2 shadow">
                         <div class="d-grid text-center mt-5 "
                         style="font-weight: 800; padding-top:-100px">
                             <b style="font-size:100px">1</b>
-                            <b style="margin-top:-20px">140 pts</b>
+                            <b style="margin-top:-20px">{{users[0].score}} pts</b>
                         </div>
                         
                     </div>
@@ -103,7 +105,7 @@
                         <div class="d-grid text-center mt-5 "
                         style="font-weight: 800; padding-top:-100px">
                             <b style="transform:skew(-10deg, 200deg); font-size:100px">3</b>
-                            <b style="margin-top:-20px; margin-right:20px">140 pts</b>
+                            <b style="margin-top:-20px; margin-right:20px">{{users[2].score}} pts</b>
                         </div>
                     </div>
 
@@ -112,12 +114,15 @@
 
                 </div>
                 <div 
+                *ngIf="users"
                 class="w-100 bg-white shadow pb-5"
                 style="margin-top: -270px; border-radius:30px 30px 0px 0px; position:relative"
                 >
-                <div class="row align-items-center justify-content-around p-3">
+                <div 
+                class="row align-items-center justify-content-around p-3"
+                *ngFor="let user of users.slice(3, 10); let i=index">
                     <div class="col-1">
-                        <span>4.</span>
+                        <span>{{i+4}}</span>
                     </div>
                     <div class="col-2">
                         <img 
@@ -127,134 +132,15 @@
                         alt="">
                     </div>
                     <div class="col-6">
-                        <b>Don Delice Dushime</b>
+                        <b>{{user.first_name}} {{user.last_name}}</b>
                     </div>
                     <div class="col-3">
                         <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <b>130pts</b>
+                            <b>{{user.score}} pts</b>
                         </div>
                     </div>
                 </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>5.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>6.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>7.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>8.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>9.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-around p-3">
-                    <div class="col-1">
-                        <span>10.</span>
-                    </div>
-                    <div class="col-2">
-                        <img 
-                        src="../../../assets/images/profile.jpg" 
-                    class="rounded-circle"
-                        style="width:48px; height:48px"
-                        alt="">
-                    </div>
-                    <div class="col-6">
-                        <span>Don Delice Dushime</span>
-                    </div>
-                    <div class="col-3">
-                        <div class="bg-rose d-flex justify-content-center rounded py-1">
-                            <span>130pts</span>
-                        </div>
-                    </div>
-                </div>
+                
                 
             </div>
             </div>

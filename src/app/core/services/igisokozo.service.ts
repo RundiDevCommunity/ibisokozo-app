@@ -33,7 +33,7 @@ checkAnswer(selectedAnswer: string, token: string) {
   // Create HttpHeaders instance
   const headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
+    'Authorization': `Token ${token}`
   });
 
   return this.http.post('http://127.0.0.1:8000/api/check/check_answer/', body, { headers: headers });

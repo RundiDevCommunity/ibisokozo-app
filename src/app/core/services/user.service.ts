@@ -34,11 +34,25 @@ getUserInfo(token:string){
   
   const header={
     'content-type': 'application/json',
-    'authorization' : `Bearer ${token}`
+    'authorization' : `Token ${token}`
 
   }
 
   return this.http.get('http://127.0.0.1:8000/api/user/', {headers: header})
+
+
+}
+
+getUsersLists(token:string){
+
+  
+  const header={
+    'content-type': 'application/json',
+    'authorization' : `Token ${token}`
+
+  }
+
+  return this.http.get('http://127.0.0.1:8000/api/user-list/', {headers: header})
 
 
 }
@@ -48,7 +62,7 @@ getScore(token:string){
   
   const header={
     'content-type': 'application/json',
-    'authorization' : `Bearer ${token}`
+    'authorization' : `Token ${token}`
 
   }
 
