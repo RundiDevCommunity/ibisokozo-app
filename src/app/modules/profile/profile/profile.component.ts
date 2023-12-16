@@ -7,5 +7,10 @@ import { Location } from '@angular/common';
 })
 export class ProfileComponent {
 
+  editProfile:boolean = false;
+
+
+  
+
 
 }

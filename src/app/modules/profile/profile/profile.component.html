@@ -15,9 +15,20 @@
                     >
 
                 </div>
-                <b 
+                <b
+                *ngIf="!editProfile" 
                 class="profile-name mt-3"
                 style="font-size: 20px;">Don Delice Dushime</b>
+                <div
+                *ngIf="editProfile" 
+                class="w-100 d-flex justify-content-center mt-3">
+                    <input 
+                type="text"
+                class="input form-control w-50"
+                value="Don Delice Dushime"
+                autofocus>
+                </div>
+                
                 <p class="profile-points text-muted">
                     <i>@dondelice257</i>
                 </p>
@@ -31,7 +42,25 @@
 
             <div>
                 <div class="w-100 d-flex justify-content-center">
-                    <button class="btn btn-outline-dark">Edit profile</button>
+                    <button 
+                    class="btn btn-outline-dark"
+                    [ngClass]="{
+                        'bg-black':editProfile
+                    }"
+                    (click)="editProfile=!editProfile">
+                    <b
+                *ngIf="!editProfile" 
+                >Edit profile</b>
+                    <b
+                    
+                *ngIf="editProfile" 
+                >
+                <span
+                [ngClass]="{
+                    'text-white':editProfile
+                }">save</span>
+                </b>
+                </button>
                 </div>
             </div>
             
