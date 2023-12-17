@@ -22,6 +22,12 @@ export class AuthService {
   }
 
 
+  register(body:any){
+
+    return this.apiService.post('/register/', body)
+  }
+
+
 
 
 }

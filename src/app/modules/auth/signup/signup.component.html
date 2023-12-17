@@ -10,6 +10,8 @@
 <div class="px-4 ">
     <div 
     class=""
+    [formGroup]="registerForm"
+
     
     >
         <div class="d-grid mb-2 form-floating">
@@ -18,36 +20,41 @@
              class="form-control border input rounded" 
              id="username" 
              placeholder="Username"
+             formControlName="username"
              >
-            <label for="email" class="">Akazina ukoresha</label>
+            <label for="username" class="">Akazina ukoresha</label>
 
         </div>
         <div class="d-grid mb-2 form-floating">
             <input
              type="text" 
              class="form-control border input rounded" 
-             id="username" 
-             placeholder="Username"
+            id="firstname" 
+             placeholder="itazirano"
+             formControlName="first_name"
+
              >
-            <label for="email" class="">itazirano</label>
+            <label for="firstname" class="">itazirano</label>
 
         </div>
         <div class="d-grid mb-2 form-floating">
             <input
              type="text" 
              class="form-control border input rounded" 
-             id="username" 
-             placeholder="Username"
+             id="lastname" 
+             placeholder="izina"
+             formControlName="last_name"
              >
-            <label for="email" class="">izina</label>
+            <label for="lastname" class="">izina</label>
 
         </div>
         <div class="d-grid mb-2 form-floating">
             <input
              type="text" 
              class="form-control border input rounded" 
-             id="username" 
-             placeholder="Username"
+             id="email" 
+             placeholder="agasandugu k'ubutumwa"
+             formControlName="email"
              >
             <label for="email" class="">agasandugu k'ubutumwa</label>
 
@@ -59,7 +66,7 @@
                 type="{{ passwordVisible ? 'text' : 'password' }}" 
                 class="form-control border input rounded" 
                 id="password" 
-                placeholder="Password"
+                placeholder="akabanga"
                 formControlName="password">
               <label for="password" class="mb-1">Akabanga</label>
 
@@ -88,10 +95,10 @@
                     <input 
                 type="{{ passwordVisible ? 'text' : 'password' }}" 
                 class="form-control border input rounded" 
-                id="password" 
-                placeholder="Password"
-                formControlName="password">
-              <label for="password" class="mb-1">Akabanga</label>
+                id="password1" 
+                placeholder="akabanga"
+                formControlName="password2">
+              <label for="password2" class="mb-1">Emeza akabanga</label>
 
                 </div>
                 
@@ -117,6 +124,7 @@
         <div class="w-100 d-flex justify-content-center mt-4">
             <button 
             type="submit"
+            (click)="register()"
             class="bg-main rounded text-white p-2 px-5 border border-none">
                 <b>iyandikishe</b>
             </button>
