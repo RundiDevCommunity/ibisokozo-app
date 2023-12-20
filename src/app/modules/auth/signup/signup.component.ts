@@ -13,6 +13,7 @@ export class SignupComponent {
 
   passwordVisible = false;
   registerForm:FormGroup;
+  isLoading:boolean = false;
 
   constructor(
     private authService : AuthService,
@@ -35,6 +36,8 @@ export class SignupComponent {
 
 
   register(){
+
+    this.isLoading=true
     const body={
       username:this.registerForm.value.username,
       email:this.registerForm.value.email,
@@ -49,6 +52,7 @@ export class SignupComponent {
 
     this.authService.register(body).subscribe({
       next:(response)=>{
+        this.isLoading=false
 
         if(response.username== this.registerForm.value.username){
           const data={
@@ -68,6 +72,7 @@ export class SignupComponent {
 
 
       }, error:(err:any)=>{
+        this.isLoading=false
 
         const data={
           type: 'failed',

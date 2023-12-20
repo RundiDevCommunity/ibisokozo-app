@@ -9,10 +9,15 @@
 
     <div class="w-100 d-flex justify-content-center mt-5">
         <div 
+        
         class=""
         [formGroup]="loginForm"
         (ngSubmit)="login()">
-            <div class="d-grid mb-2 form-floating">
+            <div 
+            [ngClass]="{
+                'not-clickable':isLoading
+            }"
+            class="d-grid mb-2 form-floating">
                 <input
                  type="text" 
                  class="form-control border input rounded" 
@@ -23,7 +28,11 @@
                 <label for="email" class="">Akazina ukoresha</label>
 
             </div>
-            <div class="d-grid">
+            <div 
+            [ngClass]="{
+                'not-clickable':isLoading
+            }"
+            class="d-grid">
                 <div class="input-group">
                     <div class="form-floating">
                         <input 
@@ -52,7 +61,11 @@
                     </span>
                 </div>
             </div>
-            <div class="float-end mb-2">
+            <div 
+            [ngClass]="{
+                'not-clickable':isLoading
+            }"
+            class="float-end mb-2">
                 <b
                  class="text-main" 
                  routerLink="/reset-password"
@@ -60,12 +73,32 @@
                  role="button">Forgot password</b>
             </div><br><br><br>
 
-            <div class="w-100 d-flex justify-content-center mt-4">
+            <div
+            [ngClass]="{
+                'not-clickable':isLoading
+            }"
+             class="w-100 d-flex justify-content-center mt-4">
                 <button 
                 type="submit"
+                [disabled]="loginForm.invalid"
                 (click)="login()"
                 class="bg-main rounded text-white p-2 px-5 border border-none">
-                    <b>Login</b>
+
+                    <b 
+                    *ngIf="!isLoading"
+                    >Login</b>
+                    <div 
+                    class="d-flex align-items-center"
+                    *ngIf="isLoading"
+                    >
+                        <span 
+
+                    class=" spinner-border me-1 text-white"
+                    ></span>
+                    
+
+                    </div>
+                    
                 </button>
 
             </div>

@@ -117,6 +117,10 @@
                                         
                 </span>
             </div>
+            <small 
+            class="text-danger"
+            *ngIf="registerForm.value.password && registerForm.value.password2 && registerForm.value.password !==registerForm.value.password2 "
+            >akabanga washizemwo ntigasa nakambere</small>
         
         </div>
         <br><br>
@@ -125,8 +129,23 @@
             <button 
             type="submit"
             (click)="register()"
+            [disabled]="registerForm.invalid || registerForm.value.password !== registerForm.value.password2"
             class="bg-main rounded text-white p-2 px-5 border border-none">
-                <b>iyandikishe</b>
+                <b
+                *ngIf="!isLoading"
+
+                >iyandikishe</b>
+                <div 
+                    class="d-flex align-items-center"
+                    *ngIf="isLoading"
+                    >
+                        <span 
+
+                    class=" spinner-border me-1 text-white"
+                    ></span>
+                    
+
+                    </div>
             </button>
 
         </div>

@@ -3,7 +3,31 @@
         <app-go-back></app-go-back>
        
     </div> -->
-    <div class="row">
+    <div class="d-grid">
+        <div class="ms-2 mb-4">
+            <b class="text-muted">umwindondoro wanje</b>
+
+        </div>
+        <div *ngIf="!user">
+            <div class="d-flex justify-content-center">
+                <ngx-skeleton-loader [theme]="{height: '250px', width: '250px' }" appearance="circle"></ngx-skeleton-loader>
+            
+                </div>
+                <div class="mt-5 mx-3">
+                    <span 
+                    class="w-75"
+                    *ngFor="let loader of [1, 2, 3]; let i=index"
+                    [ngClass]="{
+                        'w-75':i ==1
+                    }">
+                <ngx-skeleton-loader [theme]="{height: '25px', }"></ngx-skeleton-loader>
+            
+            
+                    </span>
+                </div>
+
+        </div>
+        
         <div 
         *ngIf="user"
         class="">

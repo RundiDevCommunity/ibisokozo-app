@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MostScoresComponent } from './most-scores.component';
 import { MostScoresRoutingModule } from './most-scores-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     MostScoresRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxSkeletonLoaderModule
   ]
 })
 export class MostScoresModule { }

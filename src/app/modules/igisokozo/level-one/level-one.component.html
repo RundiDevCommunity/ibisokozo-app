@@ -56,8 +56,14 @@ class="mt-5 ms-4 pt-5"
 class="igisokozo slide-in"
 *ngIf="niruze"
 >
-<div class="mx-2 mt-5 pt-4"
+<div class="mt-2"
 *ngIf="!igisokozo">
+    <div>
+        <b class="text-secondary mx-2">turiko turakuronderera igisokozo, rindira gato...</b>
+    </div>
+    <div class="mx-2 mt-5 pt-4"
+>
+
     <div class="mx-3">
     <ngx-skeleton-loader [theme]="{height: '20px', }"></ngx-skeleton-loader>
 
@@ -78,9 +84,13 @@ class="igisokozo slide-in"
 
     </div>
   </div>
+    
+</div>
+
 <div
+*ngIf="igisokozo"
 class="slide-in px-3"
-*ngIf="igisokozo">
+>
 
     <div 
     class="w-100 d-grid justify-content-between">
@@ -159,11 +169,33 @@ class="slide-in px-3"
         class="rounded p-2 bg-main text-white"
         style="border: none; "
     >
+    <span
+    *ngIf="!isLoading">
         <b>
         Igikurikira
 
         </b>
         <i class="fa fa-arrow-right"></i>
+    </span>
+    <div 
+    *ngIf="isLoading"
+                    class="d-flex align-items-center"
+                    >
+                    <span
+                    *ngFor="let _ of [1, 2, 3]"
+                    >
+                        <span 
+
+                    class=" spinner-grow spinner-grow-sm me-1 text-white"
+                    ></span>
+
+
+                    </span>
+                        
+                    
+
+                    </div>
+        
         
     </button>
 </div>

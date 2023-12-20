@@ -31,6 +31,7 @@ export class LevelOneComponent implements OnInit {
   selectedAnswer:string=''
   isAuthenticated$:Observable<boolean>
   isAuthenticated:boolean=false
+  isLoading:boolean=false
 
   
 
@@ -67,11 +68,13 @@ export class LevelOneComponent implements OnInit {
 
   }
   getIgisokozo(){
+    this.isLoading=true
     this.highlightAnswers=false
     this.answerDisabled=false
 
     this.igisokozoService.getIbisokozo().subscribe({
       next:(igisokozo:any)=>{
+        this.isLoading=false
         this.igisokozo=igisokozo
       }
     })

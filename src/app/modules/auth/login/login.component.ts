@@ -14,6 +14,7 @@ import { OpenDialog } from 'src/app/states/notification';
 export class LoginComponent {
 
   passwordVisible = false;
+  isLoading: boolean = false;
 
   loginForm = new FormGroup({
     username:new FormControl<string>('', Validators.required),
@@ -39,9 +40,12 @@ ngOnInit(){
 
 
   login(){
+    this.isLoading=true
 
   this.authService.login(this.loginForm.value).subscribe({
     next :(response) =>{
+    this.isLoading=false
+
 
       console.log('olllaah',response)
 
@@ -53,13 +57,23 @@ ngOnInit(){
       
     },
     error : (error)=>{
+      this.isLoading=false
+
+
+      let errorMessage;
+
+      if(error.detail){
+        errorMessage=error.detail
+      }else{
+        errorMessage='hari ivyagenze nabi, subiramwo ugerageze'
+      }
 
       console.log(error);
 
       const data={
         type: 'failed',
         title: 'Failed to login',
-        message: error.detail,
+        message: errorMessage,
 }
       this.store.dispatch( new OpenDialog(data))
       
