@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IgisokozoService } from './core/services/igisokozo.service';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AuthModule } from './modules/auth/auth.module';
     SharedModule,
     HttpClientModule,
     CoreModule,
+    NgxSkeletonLoaderModule,
+    
   ],
 
   bootstrap: [AppComponent]

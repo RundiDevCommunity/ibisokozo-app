@@ -52,7 +52,7 @@ getUsersLists(token:string){
 
   }
 
-  return this.http.get('http://127.0.0.1:8000/api/user-list/', {headers: header})
+  return this.http.get('http://102.134.108.82/api/user-list/', {headers: header})
 
 
 }
@@ -66,7 +66,7 @@ getScore(token:string){
 
   }
 
-  return this.http.get('http://127.0.0.1:8000/api/score/', {headers: header})
+  return this.http.get('http://102.134.108.82/api/score/', {headers: header})
 
 
 }

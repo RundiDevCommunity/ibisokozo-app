@@ -56,9 +56,32 @@ class="mt-5 ms-4 pt-5"
 class="igisokozo slide-in"
 *ngIf="niruze"
 >
+<div class="mx-2 mt-5 pt-4"
+*ngIf="!igisokozo">
+    <div class="mx-3">
+    <ngx-skeleton-loader [theme]="{height: '20px', }"></ngx-skeleton-loader>
+
+    </div>
+    <div class="mt-5">
+        <span *ngFor="let loader of [1, 2, 3, 4]">
+    <ngx-skeleton-loader [theme]="{height: '25px', }"></ngx-skeleton-loader>
+
+
+        </span>
+    </div>
+    <div class="float-end w-25 me-3 mt-3">
+        <span>
+    <ngx-skeleton-loader [theme]="{height: '40px', }"></ngx-skeleton-loader>
+
+        </span>
+
+
+    </div>
+  </div>
 <div
 class="slide-in px-3"
 *ngIf="igisokozo">
+
     <div 
     class="w-100 d-grid justify-content-between">
         <div 

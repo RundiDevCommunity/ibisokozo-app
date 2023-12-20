@@ -148,8 +148,7 @@ export class HomeComponent implements OnInit {
   }
 
   startGame() {
-    this.router.navigateByUrl('/igisokozo');
-    // Dispatch actions or perform other actions as needed...
+    this.router.navigateByUrl('/igisokozo/level-1');
   }
 
   ngOnDestroy(){

@@ -5,6 +5,7 @@ import { IgisokozoRoutingModule } from './igisokozo-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LevelOneComponent } from './level-one/level-one.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 
@@ -17,8 +18,13 @@ import { LevelOneComponent } from './level-one/level-one.component';
     CommonModule,
     IgisokozoRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    NgxSkeletonLoaderModule
 
+  ],
+
+  exports:[
+    LevelOneComponent
   ]
 })
 export class IgisokozoModule { }

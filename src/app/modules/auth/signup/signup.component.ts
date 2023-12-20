@@ -45,6 +45,8 @@ export class SignupComponent {
 
     }
 
+
+
     this.authService.register(body).subscribe({
       next:(response)=>{
 
@@ -63,6 +65,16 @@ export class SignupComponent {
     }
           this.store.dispatch( new OpenDialog(data))
         }
+
+
+      }, error:(err:any)=>{
+
+        const data={
+          type: 'failed',
+          title: '',
+          message: 'ivyo wasavye ntivyakunze, gerageza gusubiramwo',
+  }
+        this.store.dispatch( new OpenDialog(data))
 
       }
     })
