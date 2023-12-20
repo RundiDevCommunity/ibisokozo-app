@@ -1,5 +1,8 @@
-<div *ngIf="notification.type === 'success' || notification.type === 'failed'"
- class="m-5">
+<div 
+
+*ngIf="notification.type === 'success' || notification.type === 'failed'"
+ class="m-5 text-white position-absolute"
+ style="top:0">
     <div
         [ngClass]="{
             'notification-success': notification.type === 'success',
