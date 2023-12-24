@@ -10,6 +10,99 @@
     src="../../../assets/images/wave.gif"
     alt=""> -->
 
+
+    <!--
+
+
+        Certainly! To host a Django API with a PostgreSQL database and consume the APIs in your Angular app, you can follow these general steps:
+
+1. **Prepare Your Django API:**
+   - Make sure your Django app is set up and works locally.
+   - Update your `settings.py` to use PostgreSQL as the database. Install the `psycopg2` package for PostgreSQL support.
+
+   ```python
+   # settings.py
+
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'your_database_name',
+           'USER': 'your_database_user',
+           'PASSWORD': 'your_database_password',
+           'HOST': 'localhost',  # Set to the appropriate host
+           'PORT': '5432',       # Set to the appropriate port
+       }
+   }
+   ```
+
+   - Run `python manage.py migrate` to apply the database migrations.
+
+2. **Host Your Django API:**
+   - Deploy your Django app using a platform like Heroku, AWS, DigitalOcean, etc.
+   - Configure environment variables for database credentials and other sensitive information.
+
+3. **Expose API Endpoints:**
+   - Ensure that your Django app's API endpoints are accessible over the internet.
+
+4. **Update CORS Settings:**
+   - If your Angular app is hosted on a different domain, you may need to update the CORS (Cross-Origin Resource Sharing) settings in your Django app to allow requests from your Angular app's domain.
+
+   Install the `django-cors-headers` package:
+
+   ```bash
+   pip install django-cors-headers
+   ```
+
+   Update your `settings.py`:
+
+   ```python
+   # settings.py
+
+   INSTALLED_APPS = [
+       # ...
+       'corsheaders',
+       # ...
+   ]
+
+   MIDDLEWARE = [
+       # ...
+       'corsheaders.middleware.CorsMiddleware',
+       # ...
+   ]
+
+   CORS_ALLOWED_ORIGINS = [
+       "http://localhost:4200",  # Add your Angular app's URL
+   ]
+   ```
+
+5. **Consume APIs in Angular App:**
+   - In your Angular app, use Angular's HTTP client or a library like `HttpClientModule` to make requests to the hosted Django API.
+
+   Example Angular service:
+
+   ```typescript
+   import { Injectable } from '@angular/core';
+   import { HttpClient } from '@angular/common/http';
+
+   @Injectable({
+       providedIn: 'root',
+   })
+   export class ApiService {
+       private apiUrl = 'https://your-django-api-url.com';
+
+       constructor(private http: HttpClient) {}
+
+       getData() {
+           return this.http.get(`${this.apiUrl}/your-endpoint`);
+       }
+   }
+   ```
+
+   Use this service in your Angular components to fetch data from your Django API.
+
+Remember to replace placeholders like `your-django-api-url.com`, database credentials, and endpoint names with your actual values. Additionally, ensure that your Angular app's server (if any) allows requests to the Django API.
+    -->
+
    </div>
    <br><br><br>
   

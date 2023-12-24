@@ -35,9 +35,17 @@
                 <div class="d-flex justify-content-center">
                     <img 
                      src="../../../assets/images/userprofile.png" 
+                     *ngIf="!user.profile_photo"
                     alt="User Photo" 
                     style="width:250px; height:250px"
                     class="profile-photo img-fluid rounded-circle"
+                    >
+
+                    <img 
+                     [src]="user.profile_photo" 
+                    alt="User Photo" 
+                    style="width:250px; height:250px"
+                    class="profile-photo img-fluid rounded-circle border border-muted"
                     >
 
                 </div>
