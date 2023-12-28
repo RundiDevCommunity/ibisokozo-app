@@ -30,14 +30,29 @@
                 class="d-flex justify-content-around align-items-start"
                 >
                     <div class="d-grid"
-                    (click)="openPhoto('../../../assets/images/profile.jpg')"
                     style="margin-top: 2.7rem;">
                         <div class="d-grid">
-                            <div class="d-flex justify-content-center">
-                                <img 
-                            class="rounded-circle"
-                            style="width:60px; height:60px"
-                            src="../../../assets/images/profile.jpg" alt="">
+                            <div 
+                            role="button"
+                            class="d-flex justify-content-center">
+                               
+
+                            <img 
+                        src="../../../assets/images/userprofile.png" 
+                    (click)="openPhoto('../../../assets/images/userprofile.png', users[1])"
+
+                        *ngIf="!users[1].profile_photo"
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
+                        <img 
+                        *ngIf="users[1].profile_photo"
+                        [src]="users[1].profile_photo" 
+                    (click)="openPhoto(users[1].profile_photo, users[1])"
+
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
 
                             </div>
                             <div class="mt-2 d-grid">
@@ -53,11 +68,27 @@
                     </div>
                     <div class="d-grid">
                         <div class="d-grid">
-                            <div class="d-flex justify-content-center">
-                                <img 
-                            class="rounded-circle"
-                            style="width:60px; height:60px"
-                            src="../../../assets/images/profile.jpg" alt="">
+                            <div 
+                            role="button"
+                            class="d-flex justify-content-center">
+                               
+
+                            <img 
+                        src="../../../assets/images/userprofile.png" 
+                    (click)="openPhoto('../../../assets/images/userprofile.png', users[0])"
+
+                        *ngIf="!users[0].profile_photo"
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
+                        <img 
+                        *ngIf="users[0].profile_photo"
+                        [src]="users[0].profile_photo" 
+                    (click)="openPhoto(users[0].profile_photo, users[0])"
+
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
 
                             </div>
                             <div class="mt-2 d-grid">
@@ -73,11 +104,27 @@
                     </div>
                     <div class="d-grid mt-5">
                         <div class="d-grid">
-                            <div class="d-flex justify-content-center">
-                                <img 
-                            class="rounded-circle"
-                            style="width:60px; height:60px"
-                            src="../../../assets/images/profile.jpg" alt="">
+                            <div 
+                            role="button"
+                            class="d-flex justify-content-center">
+                               
+
+                            <img 
+                        src="../../../assets/images/userprofile.png" 
+                    (click)="openPhoto('../../../assets/images/userprofile.png', users[2])"
+
+                        *ngIf="!users[2].profile_photo"
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
+                        <img 
+                        *ngIf="users[2].profile_photo"
+                        [src]="users[2].profile_photo" 
+                    (click)="openPhoto(users[2].profile_photo, users[2])"
+
+                    class="rounded-circle"
+                        style="width:60px; height:60px"
+                        alt="">
 
                             </div>
                             <div class="mt-2 d-grid">
@@ -136,9 +183,21 @@
                     <div class="col-1">
                         <span>{{i+4}}</span>
                     </div>
-                    <div class="col-2">
+                    <div 
+                    class="col-2"
+                    role="button">
+                        <img
+                    (click)="openPhoto('../../../assets/images/userprofile.png', user)"
+                        src="../../../assets/images/userprofile.png" 
+                        *ngIf="!user.profile_photo"
+                    class="rounded-circle"
+                        style="width:48px; height:48px"
+                        alt="">
                         <img 
-                        src="../../../assets/images/profile.jpg" 
+                    (click)="openPhoto(user.profile_photo, user)"
+
+                        *ngIf="user.profile_photo"
+                        [src]="user.profile_photo" 
                     class="rounded-circle"
                         style="width:48px; height:48px"
                         alt="">
@@ -162,6 +221,7 @@
 
 <!--  -->
 <!-- Enlarged photo modal -->
+
 <div *ngIf="isPhotoOpen">
     <div 
 class="photo-modal d-grid" 
@@ -175,12 +235,14 @@ class="photo-modal d-grid"
     </b>
     <img [src]="enlargedPhotoUrl" alt="Enlarged User Photo" class="enlarged-photo">
     <div class="d-grid pt-2">
-        <span>Don Delice Dushime</span>
-        <b>140pts</b>
+        <span>{{selectedUser.first_name}} {{selectedUser.last_name}}</span>
+        <b>{{selectedUser.score}}pts</b>
 
     </div>
 
    
 </div>
 </div>
-<div class="overlay" [ngClass]="{ 'show-overlay': isPhotoOpen }"></div>
+<!-- <div class="overlay" [ngClass]="{ 'show-overlay': isPhotoOpen }"></div> -->
+<div class="overlay" [ngClass]="{ 'show-overlay': isPhotoOpen }" (click)="closePhoto()"></div>
+

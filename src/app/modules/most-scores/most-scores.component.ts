@@ -1,3 +1,4 @@
+import { style, transition, trigger, state, animate } from '@angular/animations';
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -8,7 +9,15 @@ import { AuthState } from 'src/app/states/auth/auth.state';
 @Component({
   selector: 'app-most-scores',
   templateUrl: './most-scores.component.html',
-  styleUrls: ['./most-scores.component.scss']
+  styleUrls: ['./most-scores.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(300)),
+    ]),
+  ],
 })
 export class MostScoresComponent {
 
@@ -28,6 +37,7 @@ export class MostScoresComponent {
   users: any;
   token:any=''
   token$:Observable<string | null>
+  selectedUser:any
 
 
 
@@ -65,9 +75,10 @@ export class MostScoresComponent {
 
   }
 
-  openPhoto(photoUrl: string) {
+  openPhoto(photoUrl: string, selectedUser:any) {
       this.isPhotoOpen = true;
       this.enlargedPhotoUrl = photoUrl;
+      this.selectedUser=selectedUser
   }
 
   closePhoto() {

@@ -43,6 +43,8 @@
 
                     <img 
                      [src]="user.profile_photo" 
+                     *ngIf="user.profile_photo"
+
                     alt="User Photo" 
                     style="width:250px; height:250px"
                     class="profile-photo img-fluid rounded-circle border border-muted"
