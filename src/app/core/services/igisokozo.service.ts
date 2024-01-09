@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,6 @@ checkAnswer(selectedAnswer: string, token: string) {
     'Authorization': `Token ${token}`
   });
 
-  return this.http.post('http://127.0.0.1:8000/api/check/check_answer/', body, { headers: headers });
+  return this.http.post(`${environment.apiUrl}/check/check_answer/`, body, { headers: headers });
 }
 }

@@ -67,7 +67,7 @@ export class MostScoresComponent {
       next:(users:any)=>{
         this.users=users.results
 
-        console.log('users', users);
+        console.log('users', this.users);
         
 
       }

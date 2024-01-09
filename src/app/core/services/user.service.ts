@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { AuthState } from 'src/app/states/auth/auth.state';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,8 @@ token$:Observable<any>
     })
    }
 
+  
+
 getUserInfo(token:string){
 
   
@@ -38,7 +41,7 @@ getUserInfo(token:string){
 
   }
 
-  return this.http.get('http://127.0.0.1:8000/api/user/', {headers: header})
+  return this.http.get(`${environment.apiUrl}/user/`, {headers: header})
 
 
 }
@@ -52,7 +55,7 @@ getUsersLists(token:string){
 
   }
 
-  return this.http.get('http://127.0.0.1:8000/api/user-list/', {headers: header})
+  return this.http.get(`${environment.apiUrl}/user-list/`, {headers: header})
 
 
 }
@@ -66,7 +69,7 @@ getScore(token:string){
 
   }
 
-  return this.http.get('http://127.0.0.1:8000/api/score/', {headers: header})
+  return this.http.get(`${environment.apiUrl}/score/`, {headers: header})
 
 
 }
