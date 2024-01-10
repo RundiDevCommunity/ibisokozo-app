@@ -76,6 +76,8 @@ export class LevelOneComponent implements OnInit {
       next:(igisokozo:any)=>{
         this.isLoading=false
         this.igisokozo=igisokozo
+
+        console.log('igisokozo', igisokozo)
       }
     })
 
@@ -110,7 +112,7 @@ export class LevelOneComponent implements OnInit {
       this.getScore()  
 
 
-    console.log('aaa', item, this.igisokozo.inyishu.inyishu);
+    console.log('aaa', item, this.igisokozo.inyishu);
       
       })
 
