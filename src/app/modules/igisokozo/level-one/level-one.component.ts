@@ -96,6 +96,12 @@ export class LevelOneComponent implements OnInit {
     this.answerDisabled=true
     this.selectedAnswer=item
 
+    setTimeout(() => {
+
+      this.getIgisokozo()
+      
+    }, 2000);
+
 
     if(this.isAuthenticated){
 
@@ -118,6 +124,12 @@ export class LevelOneComponent implements OnInit {
 
       }else{
         if(item == this.igisokozo.inyishu.inyishu){
+
+          setTimeout(() => {
+
+            this.getIgisokozo()
+            
+          }, 300);
           this.score+=1
           console.log('scc');
           this.isCorrect=true
