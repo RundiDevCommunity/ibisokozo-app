@@ -80,7 +80,6 @@ export class SignupComponent {
       }, error:(err:any)=>{
         this.isLoading=false
 
-    this.router.navigateByUrl('/login')
 
 
         const data={
