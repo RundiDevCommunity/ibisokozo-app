@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { OpenDialog } from 'src/app/states/notification';
@@ -17,7 +18,8 @@ export class SignupComponent {
 
   constructor(
     private authService : AuthService,
-    private store : Store
+    private store : Store, 
+    private router : Router
   ){
     this.registerForm=new FormGroup({
       username:new FormControl('', Validators.required),
@@ -60,6 +62,10 @@ export class SignupComponent {
             title: '',
             message: 'wiyandishije neza, genda winjire',
     }
+
+    this.router.navigateByUrl('/login')
+
+
           this.store.dispatch( new OpenDialog(data))
         }     else if(response.username !== this.registerForm.value.username){
           const data={
@@ -73,6 +79,9 @@ export class SignupComponent {
 
       }, error:(err:any)=>{
         this.isLoading=false
+
+    this.router.navigateByUrl('/login')
+
 
         const data={
           type: 'failed',

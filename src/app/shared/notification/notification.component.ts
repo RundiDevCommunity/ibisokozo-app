@@ -31,8 +31,8 @@ showNotification=false;
                 this.showNotification = true;
                 setTimeout(() => {
                     this.showNotification = false;
-                    console.log('Okkss 444');
-                }, 5000);
+                    console.log('shows notification popup');
+                }, 500000);
             }
         },
     });

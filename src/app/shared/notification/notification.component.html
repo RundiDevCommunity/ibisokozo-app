@@ -1,8 +1,17 @@
 <div 
 
 *ngIf="notification.type === 'success' || notification.type === 'failed'"
- class="m-5 text-white position-absolute"
+ class="m-3 mt-5 text-white position-fixed"
  style="top:0">
+ <div class="w-100 pt-2 pe-2">
+    <span
+    role="button" 
+    (click)="showNotification=false"
+    class="float-end text-white">
+        <i class="fa fa-xmark"></i>
+    </span>
+ </div>
+
     <div
         [ngClass]="{
             'notification-success': notification.type === 'success',
