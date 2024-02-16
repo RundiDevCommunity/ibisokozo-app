@@ -8,6 +8,13 @@ import { GeneralService } from 'src/app/core/services/general.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+
+  isAuthenticated$:Observable<boolean>
+  isAuthenticated$:boolean=false
+
+
+
   constructor(
     private router: Router,
     private generalService : GeneralService
@@ -149,6 +156,10 @@ export class HomeComponent implements OnInit {
 
   startGame() {
     this.router.navigateByUrl('/igisokozo/level-1');
+  }
+
+  goToLogin() {
+    this.router.navigateByUrl('/login');
   }
 
   ngOnDestroy(){
