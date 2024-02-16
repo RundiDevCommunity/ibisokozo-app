@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { GeneralService } from 'src/app/core/services/general.service';
+import { AuthState } from 'src/app/states/auth/auth.state';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +14,72 @@ export class HomeComponent implements OnInit {
 
 
   isAuthenticated$:Observable<boolean>
-  isAuthenticated$:boolean=false
+  isAuthenticated:boolean=false
+  roles = ['Kaze kurubuga rw\'ibisokozo', 'Injira kugira utangure gukina', 'Iyungure ubumenyi ufise mub\'ibisokozo', 'Pima urugero uriko kub\'ibisokozo'];
+  currentRoleIndex = 0;
+  typingSpeed = 100; 
 
 
 
   constructor(
+    private store : Store,
     private router: Router,
-    private generalService : GeneralService
-    ) {}
+    private generalService : GeneralService,
+    ) {
+      this.isAuthenticated$=this.store.select(AuthState.isAuthenticated)
+    }
 
   ngOnInit() {
+
+    this.isAuthenticated$.subscribe((isAuthenticated:boolean)=>{
+      this.isAuthenticated = isAuthenticated
+    })
+
+
 
     this.getCanvas()
 
     this.generalService.disableGoBack()
 
+    this.typeRole()
+
+  }
+
+
+  typeRole() {
+    const roleText = this.roles[this.currentRoleIndex];
+    const typingContainer:any = document.getElementById('typing-text');
+    typingContainer.innerHTML = ''; 
+
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < roleText.length) {
+        typingContainer.innerHTML += roleText.charAt(charIndex);
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          this.eraseRole();
+        }, 10000); 
+      }
+    }, this.typingSpeed);
+  }
+
+  eraseRole() {
+    const typingContainer:any = document.getElementById('typing-text');
+    const roleText = this.roles[this.currentRoleIndex];
+    let charIndex = roleText.length - 1;
+
+    const erasingInterval = setInterval(() => {
+      if (charIndex >= 0) {
+        typingContainer.innerHTML = roleText.substring(0, charIndex);
+        charIndex--;
+      } else {
+        clearInterval(erasingInterval);
+        this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
+        this.typeRole();
+      }
+    }, this.typingSpeed / 1000); 
   }
 
 

@@ -1,8 +1,8 @@
-<div class="ps-2 pt-1">
+<div class="ps-2 pt-2">
     <app-go-back></app-go-back>
    
 </div>
-<div class="pt-5">
+<div class="pt-5 d-grid">
     <div class="w-100 d-flex justify-content-center mb-5 mt-5 ">
         <span class="lg-fs text-main">Injira</span>
     </div>
@@ -10,14 +10,14 @@
     <div class="w-100 d-flex justify-content-center mt-5">
         <div 
         
-        class=""
+        class="w-100 px-4"
         [formGroup]="loginForm"
         (ngSubmit)="login()">
             <div 
             [ngClass]="{
                 'not-clickable':isLoading
             }"
-            class="d-grid mb-2 form-floating">
+            class="d-grid mb-4 form-floating">
                 <input
                  type="text" 
                  class="form-control border input rounded" 
@@ -61,7 +61,7 @@
                     </span>
                 </div>
             </div>
-            <div 
+            <!-- <div 
             [ngClass]="{
                 'not-clickable':isLoading
             }"
@@ -71,7 +71,8 @@
                  routerLink="/reset-password"
                  style="text-decoration: underline;"
                  role="button">Wibagiye akabanga ?</b>
-            </div><br><br><br>
+            </div> -->
+
 
             <div
             [ngClass]="{
@@ -102,9 +103,9 @@
                 </button>
 
             </div>
-            <div class="mt-3">
+            <div class="mt-3 d-flex w-100 justify-content-center mt-2">
                 <div>
-                    <span>Don't have an account ? </span>
+                    <span>Nta konti ufise ? </span>
                     <b
                      class="text-main"
                      routerLink="/signup"

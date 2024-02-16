@@ -1,4 +1,4 @@
-<div class="bg-white w-100 d-flex justify-content-between align-items-center" style="z-index:25">
+<div class="bg-white pt-1 ps-2 w-100 d-flex justify-content-between align-items-center" style="z-index:25">
  
     <div 
     class="p-1 ps-2 d-flex align-items-center" 
@@ -10,11 +10,17 @@
             <app-go-back></app-go-back>
            
         </div>
+        
 
         <span 
     routerLink="" 
 
-        class="lg-fs text-main">Ibisokozo</span>
+        class="lg-fs text-main">
+        <div 
+        title="ibisokozo"
+        style="background: url(../../../../assets/images/ibisokozo-icon.png); width:40px; height:40px; background-size:contain">
+
+        </div></span>
     </div>
     
 
@@ -45,7 +51,7 @@
 
     </div>
     <div
-     class="bg-white text-main position-fixed mt-0 menu h-100 w-100" 
+     class="bg-white text-main position-fixed mt-0 pt-2 menu h-100 w-100" 
      style="right:0; z-index:25; top:0"
      *ngIf="isMenuShown">
      <div class="d-flex align-items-center justify-content-between w-100 px-4">
@@ -80,7 +86,7 @@
             </span>
         </div>
      </div>
-     <hr class="px-4">
+     <hr class="px-4 my-2">
 
         <div class="mx-4 mt-1">
             <div 
@@ -113,6 +119,23 @@
             </span>
                 
             </div>
+
+            <a
+             href="whatsapp://send?phone=+25765526631"
+            class="d-flex align-items-center my-3 mb-4 justify-content-between fs-3" 
+            role="button"
+            style="text-decoration: none; color:#36AE7C"
+            >
+            <div
+            class="d-flex align-items-center">
+                <i class="fa fa-phone me-2 fs-1"></i>
+                <span>Ronka ubufasha</span>
+            </div>
+            <span>
+                <i class="fa fa-chevron-right"></i>
+            </span>
+                
+            </a>
 
             <!-- <div 
             class="d-flex align-items-center my-3 mb-4 justify-content-between fs-3" 
@@ -155,7 +178,7 @@
 
 <dialog id="favDialog" class="rounded mx-2 shadow" style="border: none; max-width: 500px">
     <div>
-        <p class="text-center" style="color: #f27474; font-size: 60px">
+        <p class="text-center text-main" style="font-size: 60px">
             <i class="fa-regular fa-circle-question"></i>
         </p>
         <p
@@ -167,7 +190,7 @@
         <div class="text-center mt-3">
             <button
                 type="button"
-                class="btn btn-primary btn-sm me-3"
+                class="bg-main text-white btn me-3"
                 (click)="logout()"
             >
                 Ego
@@ -175,7 +198,7 @@
 
             <button
                 type="button"
-                class="btn btn-dark btn-sm"
+                class="btn btn-dark"
                 (click)="closeModal()"
             >
                 Oya

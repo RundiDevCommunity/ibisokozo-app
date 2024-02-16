@@ -51,3 +51,10 @@ body {
   90%{top:-0px}
   100%{top:0px}
 }
+
+h4 {
+  font-size: 35px;
+  background: -webkit-linear-gradient(#36AE7C, rgb(232, 232, 65));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
